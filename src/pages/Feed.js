@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export const Feed = () => {
   const [recipe, setRecipe] = useState([])
@@ -16,13 +17,15 @@ export const Feed = () => {
     <div>
       {recipe.map((item) => (
         <div>
-          <p>{item.title}</p>
-          <p>Ragnhildur Elín</p>
-          <img src={item.image} alt={item.title} />
-          <p>{item.shortDescription}</p>
-          {item.tags.map((tag) => (
-            <p>{tag}</p>
-          ))}
+          <Link to={`/recipe/${item._id}`}>
+            <p>{item.title}</p>
+            <p>Ragnhildur Elín</p>
+            <img src={item.image} alt={item.title} />
+            <p>{item.shortDescription}</p>
+            {item.tags.map((tag) => (
+              <p>{tag}</p>
+            ))}
+          </Link>
         </div>
       ))}
     </div>
