@@ -1,23 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro'
-import { CardHeader } from './CardHeader'
 
-export const Card = ({ recipe }) => {
+import { CardHeader } from './CardHeader'
+import { CompleteRecipe } from './CompleteRecipe'
+
+export const Card = ({ recipeId, title, image, shortDiscr, tagsArray, ingredientsArray, directions }) => {
+  console.log('IngredientsArray:', ingredientsArray)
   return (
     <RecipeCard>
-      <StyledLink to={`/recipe/${recipe._id}`}>
-        <CardHeader title={recipe.title} />
-        <FoodImage src={recipe.image} alt={recipe.title} />
-        <Description>{recipe.shortDescription}</Description>
-        {/* <Ingredients /> */}
-        {/* <Directions /> */}
+      <StyledLink to={`/recipe/${recipeId}`}>
+        <CardHeader title={title} />
+        <FoodImage src={image} alt={title} />
+        <Description>{shortDiscr}</Description>
+        {directions && <CompleteRecipe ingredientsArray={ingredientsArray} directions={directions} />}
       </StyledLink>
-      <TagContainer>
-        {recipe.tags.map((tag) => (
+      {/* <TagContainer>
+        {tagsArray.tags.map((tag) => (
           <Tag>{tag}</Tag>
         ))}
-      </TagContainer>
+      </TagContainer> */}
     </RecipeCard>
   )
 }

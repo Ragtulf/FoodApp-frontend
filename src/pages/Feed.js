@@ -17,7 +17,14 @@ export const Feed = () => {
 
   return (
     <div>
-      {recipes.map((item) => <Card key={item._id} recipe={item} />)}
+      {recipes.map((item) => (
+        <Card
+          key={item._id}
+          recipeId={item._id}
+          title={item.title}
+          image={item.image}
+          shortDiscr={item.shortDescription}
+          tagsArray={item} />))}
       <Button />
     </div>
   )
