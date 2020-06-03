@@ -1,9 +1,9 @@
 import React from 'react'
 
 export const CreateNew = () => {
-  return ( 
+  return (
     <div>
-      <h1>Good job!! <span role="img" alt="emojis">🍦👯‍♀️💥</span></h1>
+      <h1>Good job!!</h1>
     </div>
   )
 }
