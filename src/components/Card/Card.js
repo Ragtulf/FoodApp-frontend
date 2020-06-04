@@ -10,7 +10,6 @@ export const Card = ({ recipeId, title, image, ingredientsArray, directions }) =
   return (
     <RecipeCard>
       <CardHeader title={title} image={image} recipeId={recipeId} />
-      
       {directions && <CompleteRecipe ingredientsArray={ingredientsArray} directions={directions} />}
     </RecipeCard>
   )

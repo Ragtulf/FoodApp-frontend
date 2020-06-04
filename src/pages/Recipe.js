@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Card } from '../components/Card/Card'
 import { CardHeader } from '../components/Card/CardHeader'
+import { IngredientsList } from '../components/Card/Ingredients'
+import { Directions } from '../components/Card/Directions'
 import { CardFooter } from '../components/Card/CardFooter'
 
 export const Recipe = () => {
@@ -20,17 +21,10 @@ export const Recipe = () => {
 
   return (
     <div>
-      {recipe && <CardHeader title={recipe.title} image={recipe.image} />}
+      {recipe && <CardHeader title={recipe.title} image={recipe.image} shortDes={recipe.shortDescription} />}
+      {recipe && <IngredientsList ingredientArray={recipe} />}
+      {recipe && <Directions directions={recipe.directions} />}
       {recipe && <CardFooter tagsArray={recipe} />}
-      {/* {recipe && <Card
-        key={recipe._id}
-        recipeId={recipe._id}
-        title={recipe.title}
-        image={recipe.image}
-        shortDiscr={recipe.shortDescription}
-        tagsArray={recipe.tags}
-        ingredientsArray={recipe.ingredients}
-        directions={recipe.directions} />} */}
     </div>
   )
 }

@@ -1,20 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export const CardHeader = ({ title, image, recipeId }) => {
+export const CardHeader = ({ title, image, shortDes }) => {
   return (
     <TopCardContainer>
-      <StyledLink to={`/recipe/${recipeId}`}>
-        <CardHeading>
-          <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
-          <TitleName>
-            <RecipeTitle>{title}</RecipeTitle>
-            <User>Ragnhildur Elín</User>
-          </TitleName>
-        </CardHeading>
-        <FoodImage src={image} alt={title} />
-      </StyledLink>
+      <CardHeading>
+        <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
+        <TitleName>
+          <RecipeTitle>{title}</RecipeTitle>
+          <User>Ragnhildur Elín</User>
+        </TitleName>
+      </CardHeading>
+      <FoodImage src={image} alt={title} />
+      <Description>{shortDes}</Description>
     </TopCardContainer>
   )
 }
@@ -26,12 +24,6 @@ const TopCardContainer = styled.div`
   max-width: 100%;
   margin: 0px 10px;
   border-radius: 20px 20px 0px 0px;
-`
-
-const StyledLink = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
 `
 
 const Avatar = styled.img`
@@ -64,4 +56,12 @@ const User = styled.p`
 const FoodImage = styled.img`
   width: 100%;
   align-self: flex-end;
+`
+
+const Description = styled.p`
+  font-size: 14px;
+  color: #31556D;
+  padding: 10px 10px 0 10px;
+  background-color: #fffbfa;
+  margin: 0px 10px;
 `

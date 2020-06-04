@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 import { CardHeader } from '../components/Card/CardHeader'
@@ -21,8 +22,9 @@ export const Feed = () => {
     <div>
       {recipes && recipes.map((item) => (
         <div>
-          <CardHeader title={item.title} image={item.image} recipeId={item._id} />
-          <Description>{item.shortDescription}</Description>
+          <StyledLink to={`/recipe/${item._id}`}>
+            <CardHeader title={item.title} image={item.image} shortDes={item.shortDescription} />
+          </StyledLink>
           <CardFooter tagsArray={item} />
         </div>))}
       <Button />
@@ -30,10 +32,8 @@ export const Feed = () => {
   )
 }
 
-const Description = styled.p`
-  font-size: 14px;
-  color: #31556D;
-  padding: 10px 10px 0 10px;
-  background-color: #fffbfa;
-  margin: 0px 10px;
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
 `
