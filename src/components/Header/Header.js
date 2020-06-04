@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <Heading>
       <Home to="/">
-        <Logo src="assets/logo.svg" alt="logo" />
+        <Logo src="/assets/logo.svg" alt="logo" />
       </Home>
 
       <UserLog>

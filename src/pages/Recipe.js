@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { Card } from '../components/Card/Card'
+import { CardHeader } from '../components/Card/CardHeader'
+import { CardFooter } from '../components/Card/CardFooter'
 
 export const Recipe = () => {
-  const [recipe, setRecipe] = useState([])
+  const [recipe, setRecipe] = useState(null)
   const { id } = useParams()
 
   useEffect(() => {
@@ -13,23 +15,22 @@ export const Recipe = () => {
       .then((json) => {
         console.log('Details:', json)
         setRecipe(json)
-        // console.log('Recipe', recipe)
       })
   }, [id])
 
   return (
     <div>
-      <p>{recipe.title}</p>
-      <Card
+      {recipe && <CardHeader title={recipe.title} image={recipe.image} />}
+      {recipe && <CardFooter tagsArray={recipe} />}
+      {/* {recipe && <Card
         key={recipe._id}
         recipeId={recipe._id}
         title={recipe.title}
         image={recipe.image}
         shortDiscr={recipe.shortDescription}
-        // tagsArray={recipe}
-        // ingredientsArray={recipe}
-        directions={recipe.directions} 
-        />
+        tagsArray={recipe.tags}
+        ingredientsArray={recipe.ingredients}
+        directions={recipe.directions} />} */}
     </div>
   )
 }
