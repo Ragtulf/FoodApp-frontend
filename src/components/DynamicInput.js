@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 
-export const DynamicInput = ({ placeholderText, buttonText }) => {
-  const [fields, setFields] = useState([{ value: null }])
+export const DynamicInput = ({ placeholderText, buttonText, fields, setFields }) => {
 
   const handleChange = (index, event) => {
     const values = [...fields]

@@ -6,9 +6,9 @@ import styled from 'styled-components/macro'
 export const CreateNew = () => {
   const [title, setTitle] = useState("")
   const [shortD, setShortD] = useState("")
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState([{value: ""}])
   const [directions, setDirections] = useState("")
-  const [tags, setTags] = useState([])
+  const [tags, setTags] = useState([{value: ""}])
 
   const handleSubmit = (event) => {
     console.log('OnClick:', event)
@@ -19,7 +19,7 @@ export const CreateNew = () => {
     <RecipeForm>
       <RecipeLabel>
         Title:
-    <InputField required
+        <InputField required
           type='text'
           onChange={(event) => setTitle(event.target.value)}
           value={title}
@@ -28,7 +28,7 @@ export const CreateNew = () => {
 
       <RecipeLabel>
         Short Description:
-    <InputField required
+        <InputField required
           type='text'
           onChange={(event) => setShortD(event.target.value)}
           value={shortD}
@@ -37,12 +37,12 @@ export const CreateNew = () => {
 
       <RecipeLabel>
         Ingredients:
-        <DynamicInput placeholderText='Add Ingredient' buttonText='+' />
+        <DynamicInput placeholderText='Add Ingredient' buttonText='+' fields={ingredients} setFields={setIngredients} />
       </RecipeLabel>
 
       <RecipeLabel>
         Directions:
-    <InputField required
+        <InputField required
           type='text'
           onChange={(event) => setDirections(event.target.value)}
           value={directions}
@@ -51,7 +51,7 @@ export const CreateNew = () => {
 
       <RecipeLabel>
         Tags:
-        <DynamicInput placeholderText='Add Tag' buttonText='+' />
+        <DynamicInput placeholderText='Add Tag' buttonText='+' fields={tags} setFields={setTags} />
       </RecipeLabel>
 
       <ShareButton onSubmit={handleSubmit} buttonName='Share recipe' />
