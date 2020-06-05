@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export const Button = () => {
+export const Fab = () => {
   return (
     <Link to="/post">
       <FabButton>

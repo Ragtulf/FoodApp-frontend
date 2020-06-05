@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 
 import { CardHeader } from '../components/Card/CardHeader'
 import { CardFooter } from '../components/Card/CardFooter'
-import { Button } from '../components/Button/Button'
+import { Fab } from '../components/Button/Fab'
 
 export const Feed = () => {
   const [recipes, setRecipes] = useState(null)
@@ -27,7 +27,7 @@ export const Feed = () => {
           </StyledLink>
           <CardFooter tagsArray={item} />
         </div>))}
-      <Button />
+      <Fab />
     </div>
   )
 }

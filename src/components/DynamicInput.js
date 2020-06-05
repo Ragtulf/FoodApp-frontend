@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
+import styled from 'styled-components/macro'
 
-export const DynamicInput = ({ placeholderText }) => {
-  const [fields, setFields] = useState([{ value:null }])
-  
+export const DynamicInput = ({ placeholderText, buttonText }) => {
+  const [fields, setFields] = useState([{ value: null }])
+
   const handleChange = (index, event) => {
-
     const values = [...fields]
     values[index].value = event.target.value
     setFields(values)
@@ -12,38 +12,52 @@ export const DynamicInput = ({ placeholderText }) => {
 
   const handleAdd = () => {
     const values = [...fields]
-    values.push({ value:null })
+    values.push({ value: null })
     setFields(values)
   }
 
   const handleRemove = (index) => {
     const values = [...fields]
-    values.splice(index,1)
+    values.splice(index, 1)
     setFields(values)
   }
 
-  return(
+  return (
     <div>
-      <button
-      type='button'
-      onClick={() => handleAdd()}
-      >Add</button>
-      
       {fields.map((field, idx) => {
-        return(
+        return (
           <div key={`${field}-${idx}`}>
-            <input
-            type='text'
-            placeholder={placeholderText}
-            onChange={event => handleChange(idx, event)}
+            <InputField
+              type='text'
+              placeholder={placeholderText}
+              onChange={event => handleChange(idx, event)}
             />
             <button
-            type='button'
-            onClick={() => handleRemove(idx)}>X</button>
+              type='button'
+              onClick={() => handleRemove(idx)}>X</button>
           </div>
         )
       })}
+      <button
+        type='button'
+        onClick={() => handleAdd()}
+      >{buttonText}</button>
     </div>
-
   )
 }
+
+const InputField = styled.input`
+  width: 200px;
+  padding: 10px;
+  background: #F3DDD4;
+  border-radius: 2px;
+  border: none;
+  margin: 5px;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #F56C54;
+  }
+  :-ms-input-placeholder {
+    color: #F56C54;
+  } 
+`
