@@ -4,7 +4,7 @@ import { ShareButton } from '../components/Button/ShareButton'
 import styled from 'styled-components/macro'
 
 export const CreateNew = () => {
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState('')
   const [shortD, setShortD] = useState("")
   const [ingredients, setIngredients] = useState([{value: ""}])
   const [directions, setDirections] = useState("")
