@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
+import styled from 'styled-components/macro'
 import { DynamicInput } from '../components/DynamicInput'
 import { ShareButton } from '../components/Button/ShareButton'
-
-import styled from 'styled-components/macro'
 
 export const CreateNew = () => {
   const [title, setTitle] = useState('')

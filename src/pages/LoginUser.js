@@ -3,35 +3,34 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
 
-// const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
-const signupURL = 'http://localhost:8080/signup'
+// const signupURL = 'https://grymt-food-app.herokuapp.com/login'
+const loginURL = 'http://localhost:8080/login'
 
-export const SignupForm = () => {
+export const LoginForm = () => {
   const [userName, setUserName] = useState('')
-  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
 
   const handleSignup = event => {
     event.preventDefault()
 
-    fetch(signupURL, {
+    fetch(loginURL, {
       method: 'POST',
-      body: JSON.stringify({ userName, email, password }),
+      body: JSON.stringify({ userName, password }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(res => {
         if (!res.ok) {
           console.log('Error on fetch')
         } else {
+          console.log('status ok')
           return res.json()
         }
       })
       .then(() => {
         setUserName('')
-        setEmail('')
         setPassword('')
-        history.push('/login')
+        history.push('/')
       })
       .catch(err => console.log('errors', err))
   }
@@ -48,30 +47,20 @@ export const SignupForm = () => {
           placeholder="Your name"
         />
       </SignupLabel>
-      
+
       <SignupLabel>
         Password:
         <InputField
           required
+          minLength="5"
           type="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}
           placeholder="******"
         />
       </SignupLabel>
-      
-      <SignupLabel>
-        E-mail:
-        <InputField
-          required
-          type="email"
-          onChange={(event) => setEmail(event.target.value)}
-          value={email}
-          placeholder="hey@hey.com"
-        />
-      </SignupLabel>
 
-      <ShareButton buttonName='Sign Up' />
+      <ShareButton buttonName='Login' />
     </UserForm>
   )
 }

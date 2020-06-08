@@ -5,6 +5,7 @@ import { Recipe } from './pages/Recipe'
 import { CreateNew } from './pages/CreateNew'
 import { Header } from './components/Header/Header'
 import { SignupForm } from './pages/SignupForm'
+import { LoginForm } from './pages/LoginUser'
 
 export const App = () => {
   return (
@@ -26,6 +27,10 @@ export const App = () => {
 
         <Route path="/signup">
           <SignupForm />
+        </Route>
+
+        <Route path="/login">
+          <LoginForm />
         </Route>
 
       </Switch>

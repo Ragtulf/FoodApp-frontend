@@ -21,7 +21,10 @@ export const Recipe = () => {
 
   return (
     <div>
-      {recipe && <CardHeader title={recipe.title} image={recipe.image} shortDes={recipe.shortDescription} />}
+      {recipe && <CardHeader
+        title={recipe.title}
+        image={recipe.image}
+        shortDes={recipe.shortDescription} />}
       {recipe && <IngredientsList ingredientArray={recipe} />}
       {recipe && <Directions directions={recipe.directions} />}
       {recipe && <CardFooter tagsArray={recipe} />}
