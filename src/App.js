@@ -4,6 +4,7 @@ import { Feed } from './pages/Feed'
 import { Recipe } from './pages/Recipe'
 import { CreateNew } from './pages/CreateNew'
 import { Header } from './components/Header/Header'
+import { SignupForm } from './pages/SignupForm'
 
 export const App = () => {
   return (
@@ -21,6 +22,10 @@ export const App = () => {
 
         <Route path="/post">
           <CreateNew />
+        </Route>
+
+        <Route path="/signup">
+          <SignupForm />
         </Route>
 
       </Switch>

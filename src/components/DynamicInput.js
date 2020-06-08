@@ -5,6 +5,8 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
 
   const handleChange = (index, event) => {
     event.preventDefault()
+    // const array = []
+    // array.push(item)
     const values = [...fields]
     values[index].value = event.target.value
     // const [...fields] = event.target.value
