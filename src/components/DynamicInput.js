@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 
 export const DynamicInput = ({ placeholderText, buttonText, fields, setFields }) => {
 
   const handleChange = (index, event) => {
+    event.preventDefault()
     const values = [...fields]
     values[index].value = event.target.value
+    // const [...fields] = event.target.value
+    // console.log('values:', values)
     setFields(values)
   }
 

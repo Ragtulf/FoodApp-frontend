@@ -5,7 +5,6 @@ import { Recipe } from './pages/Recipe'
 import { CreateNew } from './pages/CreateNew'
 import { Header } from './components/Header/Header'
 
-
 export const App = () => {
   return (
     <BrowserRouter>

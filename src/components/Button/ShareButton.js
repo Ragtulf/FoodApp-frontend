@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export const ShareButton = ({ onSubmit, buttonName }) => {
+export const ShareButton = ({ buttonName }) => {
 
   return (
     <ShareBtn
       type='submit'
-      onSubmit={onSubmit}
-    >{buttonName}</ShareBtn>
+      // onSubmit={onSubmit}
+    >{buttonName}
+    </ShareBtn>
   )
 }
 
