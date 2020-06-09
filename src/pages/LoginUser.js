@@ -30,7 +30,7 @@ export const LoginForm = () => {
       .then(() => {
         setUserName('')
         setPassword('')
-        history.push('/')
+        history.push('/secret')
       })
       .catch(err => console.log('errors', err))
   }

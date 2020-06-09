@@ -6,10 +6,10 @@ import { ShareButton } from '../components/Button/ShareButton'
 export const CreateNew = () => {
   const [title, setTitle] = useState('')
   const [shortDescription, setShortDescription] = useState('')
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
   // const [image, setImage] = useState('')
-  // const [tags, setTags] = useState([{value: ''}])
+  const [tags, setTags] = useState([{ value: null }])
 
   const handleSubmit = (event) => {
     console.log('OnClick:', event)
@@ -17,14 +17,20 @@ export const CreateNew = () => {
 
     fetch('https://grymt-food-app.herokuapp.com/recipes', {
       method: 'POST',
-      // body: JSON.stringify({ title, shortDescription, ingredients, directions, image, tags }),
-      body: JSON.stringify({ title, shortDescription, directions, ingredients }),
+      body: JSON.stringify({ 
+        title,
+        shortDescription,
+        directions,
+        ingredients: ingredients.map((ingredient) => ingredient.value),
+        tags: tags.map((tag) => tag.value)
+      }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => {
         if (!res.ok) {
           console.log('error')
           console.log('ingredients', ingredients)
+          console.log(res.json)
         } else {
           console.log(res.json)
           return res.json()
@@ -33,9 +39,9 @@ export const CreateNew = () => {
       .then(() => {
         setTitle('')
         setShortDescription('')
-        setIngredients([])
+        setIngredients([{value: ''}])
         setDirections('')
-        // setTags([{value: ''}])
+        setTags([{value: ''}])
       })
       .catch(err => console.log('error', err))
   }
@@ -88,10 +94,10 @@ export const CreateNew = () => {
         />
       </RecipeLabel>
 
-      {/* <RecipeLabel>
+      <RecipeLabel>
         Tags:
         <DynamicInput placeholderText="Add Tag" buttonText="+" fields={tags} setFields={setTags} />
-      </RecipeLabel> */}
+      </RecipeLabel>
 
       <ShareButton buttonName="Share recipe" />
 

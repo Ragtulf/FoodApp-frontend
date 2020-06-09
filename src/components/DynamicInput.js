@@ -5,18 +5,18 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
 
   const handleChange = (index, event) => {
     event.preventDefault()
-    // const array = []
-    // array.push(item)
     const values = [...fields]
     values[index].value = event.target.value
-    // const [...fields] = event.target.value
     // console.log('values:', values)
     setFields(values)
   }
 
   const handleAdd = () => {
+    console.log('Fields:', fields)
     const values = [...fields]
-    values.push({ value: null })
+    values.push([])
+
+    console.log("Console log of values: ",values)
     setFields(values)
   }
 
@@ -34,6 +34,7 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
             <InputField
               type='text'
               placeholder={placeholderText}
+              value={field.value || ""}
               onChange={event => handleChange(idx, event)}
             />
             <button
