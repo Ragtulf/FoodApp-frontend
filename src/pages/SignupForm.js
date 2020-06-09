@@ -12,7 +12,7 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const history = useHistory()
 
-  const handleSignup = event => {
+  const handleSignup = (event) => {
     event.preventDefault()
 
     fetch(signupURL, {
@@ -20,7 +20,7 @@ export const SignupForm = () => {
       body: JSON.stringify({ userName, email, password }),
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           console.log('Error on fetch')
         } else {
@@ -33,7 +33,7 @@ export const SignupForm = () => {
         setPassword('')
         history.push('/login')
       })
-      .catch(err => console.log('errors', err))
+      .catch((err) => console.log('errors', err))
   }
 
   return (
@@ -48,7 +48,7 @@ export const SignupForm = () => {
           placeholder="Your name"
         />
       </SignupLabel>
-      
+
       <SignupLabel>
         Password:
         <InputField
@@ -59,7 +59,7 @@ export const SignupForm = () => {
           placeholder="******"
         />
       </SignupLabel>
-      
+
       <SignupLabel>
         E-mail:
         <InputField
@@ -71,7 +71,7 @@ export const SignupForm = () => {
         />
       </SignupLabel>
 
-      <ShareButton buttonName='Sign Up' />
+      <ShareButton buttonName="Sign Up" />
     </UserForm>
   )
 }

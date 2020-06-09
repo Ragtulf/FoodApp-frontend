@@ -27,6 +27,9 @@ export const LoginForm = () => {
           return res.json()
         }
       })
+      // Needs an if statement with accessToken 
+      // to redirect to secret-endpoint,
+      // Use reducer to login and authenticate
       .then(() => {
         setUserName('')
         setPassword('')

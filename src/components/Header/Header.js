@@ -5,13 +5,18 @@ import styled from 'styled-components/macro'
 export const Header = () => {
   return (
     <Heading>
-      <Home to="/">
+      <Redirect to="/">
         <Logo src="/assets/logo.svg" alt="logo" />
-      </Home>
+      </Redirect>
 
       <UserLog>
-        <LoggedUser>Login</LoggedUser>
-        <LoggedUser>Sign up</LoggedUser>
+        <Redirect to="/login">
+          <LoggedUser>Login</LoggedUser>
+        </Redirect>
+
+        <Redirect to="/signup">
+          <LoggedUser>Sign up</LoggedUser>
+        </Redirect>
       </UserLog>
     </Heading>
   )
@@ -23,7 +28,7 @@ const Heading = styled.header`
   align-items: center;
 `
 
-const Home = styled(Link)`
+const Redirect = styled(Link)`
   text-decoration: none;
 `
 
