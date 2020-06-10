@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import swal from 'sweetalert'
 import { DynamicInput } from '../components/DynamicInput'
 import { ShareButton } from '../components/Button/ShareButton'
+
 
 export const CreateNew = () => {
   const [title, setTitle] = useState('')
@@ -31,6 +33,13 @@ export const CreateNew = () => {
           console.log('error')
           console.log('ingredients', ingredients)
           console.log(res.json)
+          swal({
+            text: 'Make sure you are logged in!',
+            icon: "warning",
+            button: {
+              text: 'Try again'
+            },
+          })
         } else {
           console.log(res.json)
           return res.json()
