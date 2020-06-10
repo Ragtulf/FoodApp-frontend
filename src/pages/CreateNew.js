@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import swal from 'sweetalert'
+import { useSelector } from 'react-redux'
 import { DynamicInput } from '../components/DynamicInput'
 import { ShareButton } from '../components/Button/ShareButton'
-
 
 export const CreateNew = () => {
   const [title, setTitle] = useState('')
@@ -12,6 +12,7 @@ export const CreateNew = () => {
   const [directions, setDirections] = useState('')
   // const [image, setImage] = useState('')
   const [tags, setTags] = useState([{ value: null }])
+  const accessToken = useSelector((store) => store.user.accessToken)
 
   const handleSubmit = (event) => {
     console.log('OnClick:', event)
@@ -19,14 +20,14 @@ export const CreateNew = () => {
 
     fetch('https://grymt-food-app.herokuapp.com/recipes', {
       method: 'POST',
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         title,
         shortDescription,
         directions,
         ingredients: ingredients.map((ingredient) => ingredient.value),
         tags: tags.map((tag) => tag.value)
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', Authorization: accessToken }
     })
       .then((res) => {
         if (!res.ok) {
