@@ -14,7 +14,7 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
   const handleAdd = () => {
     console.log('Fields:', fields)
     const values = [...fields]
-    values.push([])
+    values.push({ value: null })
 
     console.log("Console log of values: ",values)
     setFields(values)
@@ -32,6 +32,7 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
         return (
           <div key={`${field}-${idx}`}>
             <InputField
+              required
               type='text'
               placeholder={placeholderText}
               value={field.value || ""}

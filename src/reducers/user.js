@@ -9,8 +9,14 @@ export const user = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setRecipe: (state, action) => {
-      state.initalState = action.payload
+    login: (state) => {
+      state.loggedIn = true
+    },
+    logout: () => {
+      return initialState
+    },
+    access: (state, action) => {
+      state.accessToken = action.payload
     }
   }
 })

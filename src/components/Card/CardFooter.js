@@ -5,8 +5,8 @@ export const CardFooter = ({ tagsArray }) => {
   return (
     <Footer>
       <TagContainer>
-        {tagsArray.tags.map((tag) => (
-          <Tag>{tag}</Tag>
+        {tagsArray.tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
         ))}
       </TagContainer>
     </Footer>

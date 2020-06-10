@@ -1,23 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+import { user } from '../../reducers/user'
 
 export const Header = () => {
+  const dispatch = useDispatch()
+  const loggedIn = useSelector((store) => store.user.loggedIn)
+
+  const handleLogout = () => {
+    dispatch(user.actions.logout())
+  }
+
   return (
     <Heading>
       <Redirect to="/">
         <Logo src="/assets/logo.svg" alt="logo" />
       </Redirect>
 
-      <UserLog>
-        <Redirect to="/login">
-          <LoggedUser>Login</LoggedUser>
-        </Redirect>
+      {!loggedIn
+        && <UserLog>
+          <Redirect to="/signup">
+            <LoggedUser>Sign up</LoggedUser>
+          </Redirect>
 
-        <Redirect to="/signup">
-          <LoggedUser>Sign up</LoggedUser>
-        </Redirect>
-      </UserLog>
+          <Redirect to="/login">
+            <LoggedUser>Login</LoggedUser>
+          </Redirect>
+        </UserLog>
+      }
+
+      {loggedIn
+      && <UserLog>
+        <LoggedUser
+          onClick={handleLogout}>
+            Log Out
+        </LoggedUser>
+      </UserLog>}
     </Heading>
   )
 }
@@ -46,11 +65,12 @@ const UserLog = styled.div`
   margin-right: 12px;
 `
 
-const LoggedUser = styled.p`
+const LoggedUser = styled.button`
   font-size: 12px;
   color: #fff;
   padding: 6px;
   background: #F26A5D;
   border-radius: 6px;
   margin-left: 10px;
+  border: none;
 `

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { useDispatch } from 'react-redux'
+import swal from 'sweetalert'
+import { user } from '../reducers/user'
 import { ShareButton } from '../components/Button/ShareButton'
+
 
 // const signupURL = 'https://grymt-food-app.herokuapp.com/login'
 const loginURL = 'http://localhost:8080/login'
@@ -10,6 +14,7 @@ export const LoginForm = () => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const handleSignup = event => {
     event.preventDefault()
@@ -21,19 +26,27 @@ export const LoginForm = () => {
     })
       .then(res => {
         if (!res.ok) {
+          setUserName('')
+          setPassword('')
           console.log('Error on fetch')
+          swal({
+            text: 'Something went wrong',
+            icon: "error",
+            button: {
+              text: 'Try again'
+            },
+          })
         } else {
           console.log('status ok')
           return res.json()
         }
       })
-      // Needs an if statement with accessToken 
-      // to redirect to secret-endpoint,
-      // Use reducer to login and authenticate
-      .then(() => {
-        setUserName('')
-        setPassword('')
-        history.push('/secret')
+      .then(({ accessToken }) => {
+        if (accessToken) {
+          dispatch(user.actions.login())
+          dispatch(user.actions.access(accessToken))
+          history.push('/')
+        }
       })
       .catch(err => console.log('errors', err))
   }
