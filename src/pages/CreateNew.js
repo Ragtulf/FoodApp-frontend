@@ -18,7 +18,7 @@ export const CreateNew = () => {
     console.log('OnClick:', event)
     event.preventDefault()
 
-    fetch('https://grymt-food-app.herokuapp.com/recipes', {
+    fetch('http://localhost:8080/recipes', {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -49,9 +49,9 @@ export const CreateNew = () => {
       .then(() => {
         setTitle('')
         setShortDescription('')
-        setIngredients([{value: ''}])
+        setIngredients([{ value: '' }])
         setDirections('')
-        setTags([{value: ''}])
+        setTags([{ value: '' }])
       })
       .catch(err => console.log('error', err))
   }
