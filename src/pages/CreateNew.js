@@ -55,11 +55,7 @@ export const CreateNew = () => {
         }
       })
       .then(() => {
-        setTitle('')
-        setShortDescription('')
-        setIngredients([{ value: '' }])
-        setDirections('')
-        setTags([{ value: '' }])
+        history.push('/')
       })
       .catch(err => console.log('error', err))
   }

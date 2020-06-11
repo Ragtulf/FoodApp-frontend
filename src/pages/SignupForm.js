@@ -3,21 +3,37 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
 
+import avatars01 from '../components/Avatars2/avatars01.svg'
+
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 // const signupURL = 'http://localhost:8080/signup'
 
 export const SignupForm = () => {
   const [userName, setUserName] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
+  // const avatarsArray = [avatars01]
+
+  // const randomSelector = array => {
+  //   return array[Math.floor(Math.random() * array.length)]
+  // }
 
   const handleSignup = (event) => {
     event.preventDefault()
 
+    setAvatar(avatars01)
+
+    // const pickAvatar = () => {
+    //   const image = randomSelector(avatarsArray)
+    //   setAvatar(image)
+    // }
+    // pickAvatar()
+
     fetch(signupURL, {
       method: 'POST',
-      body: JSON.stringify({ userName, email, password }),
+      body: JSON.stringify({ userName, avatar, email, password }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => {
