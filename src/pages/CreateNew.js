@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
+import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert'
 import { useSelector } from 'react-redux'
 import { DynamicInput } from '../components/DynamicInput'
@@ -12,7 +13,14 @@ export const CreateNew = () => {
   const [directions, setDirections] = useState('')
   // const [image, setImage] = useState('')
   const [tags, setTags] = useState([{ value: null }])
+  const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
+
+  useEffect(() => {
+    if (!accessToken) {
+      history.push('/')
+    }
+  })
 
   const handleSubmit = (event) => {
     console.log('OnClick:', event)

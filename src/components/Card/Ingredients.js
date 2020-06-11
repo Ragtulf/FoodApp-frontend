@@ -5,8 +5,8 @@ export const IngredientsList = ({ ingredientArray }) => {
   return (
     <IngredientsContainer>
       <h3>Ingredients</h3>
-      {ingredientArray.ingredients.map((item) => (
-        <p>{item}</p>
+      {ingredientArray.ingredients.map((item, index) => (
+        <p key={index}>{item}</p>
       ))}
     </IngredientsContainer>
   )

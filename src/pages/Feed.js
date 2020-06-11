@@ -25,9 +25,10 @@ export const Feed = () => {
     <div>
       {recipes && recipes.map((item) => (
         <div key={item._id}>
-          <StyledLink to={`/recipe/${item._id}`}>
+          {loggedIn && <StyledLink to={`/recipe/${item._id}`}>
             <CardHeader title={item.title} image={item.image} shortDes={item.shortDescription} />
-          </StyledLink>
+          </StyledLink>}
+          {!loggedIn && <CardHeader title={item.title} image={item.image} shortDes={item.shortDescription} />}
           <CardFooter tagsArray={item} />
         </div>))}
       {loggedIn && <Fab />}

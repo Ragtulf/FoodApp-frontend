@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { CardHeader } from '../components/Card/CardHeader'
 import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
@@ -9,6 +10,7 @@ import { CardFooter } from '../components/Card/CardFooter'
 export const Recipe = () => {
   const [recipe, setRecipe] = useState(null)
   const { id } = useParams()
+  
 
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/recipe/${id}`)
