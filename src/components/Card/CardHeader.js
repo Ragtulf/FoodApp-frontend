@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export const CardHeader = ({ title, image, shortDes }) => {
+export const CardHeader = ({ title, image, shortDes, userName }) => {
   return (
     <TopCardContainer>
       <CardHeading>
         <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
         <TitleName>
           <RecipeTitle>{title}</RecipeTitle>
-          <User>Ragnhildur Elín</User>
+          <User>{userName}</User>
         </TitleName>
       </CardHeading>
       <FoodImage src={image} alt={title} />

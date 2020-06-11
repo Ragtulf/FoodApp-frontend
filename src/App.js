@@ -30,7 +30,7 @@ export const App = () => {
             <Feed />
           </Route>
 
-          <Route path="/recipe/:id">
+          <Route path="/recipes/:id">
             <Recipe />
           </Route>
 

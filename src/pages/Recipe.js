@@ -13,7 +13,7 @@ export const Recipe = () => {
   
 
   useEffect(() => {
-    fetch(`https://grymt-food-app.herokuapp.com/recipe/${id}`)
+    fetch(`https://grymt-food-app.herokuapp.com/recipes/${id}`)
       .then((res) => res.json())
       .then((json) => {
         console.log('Details:', json)

@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
 
-// const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
-const signupURL = 'http://localhost:8080/signup'
+const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
+// const signupURL = 'http://localhost:8080/signup'
 
 export const SignupForm = () => {
   const [userName, setUserName] = useState('')

@@ -26,7 +26,7 @@ export const CreateNew = () => {
     console.log('OnClick:', event)
     event.preventDefault()
 
-    fetch('http://localhost:8080/recipes', {
+    fetch('https://grymt-food-app.herokuapp.com/recipes', {
       method: 'POST',
       body: JSON.stringify({
         title,
