@@ -13,6 +13,7 @@ export const SignupForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
+  // AVATARTEST
   // const avatarsArray = [avatars01]
 
   // const randomSelector = array => {
