@@ -38,12 +38,12 @@ export const LoginForm = () => {
           return res.json()
         }
       })
-      .then(({ accessToken, _id }) => {
+      .then(({ accessToken, userID }) => {
         if (accessToken) {
           dispatch(user.actions.login())
           dispatch(user.actions.access(accessToken))
-          dispatch(user.actions.userId(_id))
-          history.push('/')
+          dispatch(user.actions.userId(userID))
+          history.push('/profile')
         }
       })
       .catch((err) => console.log('errors', err))

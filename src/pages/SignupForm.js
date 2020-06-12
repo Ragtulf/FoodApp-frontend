@@ -12,7 +12,7 @@ export const SignupForm = () => {
   const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [bio, setBio] = useState('')
+  const [shortBio, setShortBio] = useState('')
   const history = useHistory()
   // AVATARTEST
   // const avatarsArray = [avatars01]
@@ -34,7 +34,7 @@ export const SignupForm = () => {
 
     fetch(signupURL, {
       method: 'POST',
-      body: JSON.stringify({ userName, avatar, email, password }),
+      body: JSON.stringify({ userName, avatar, email, password, shortBio }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => {
@@ -90,8 +90,8 @@ export const SignupForm = () => {
         <InputField
           required
           type="text"
-          onChange={(event) => setBio(event.target.value)}
-          value={bio}
+          onChange={(event) => setShortBio(event.target.value)}
+          value={shortBio}
           placeholder="Write a short bio"
           maxLength="140" />
       </SignupLabel>
