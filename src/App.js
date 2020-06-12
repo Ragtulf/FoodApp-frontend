@@ -10,7 +10,6 @@ import { CreateNew } from './pages/CreateNew'
 import { Header } from './components/Header/Header'
 import { SignupForm } from './pages/SignupForm'
 import { LoginForm } from './pages/LoginUser'
-import { Secret } from './pages/Secret'
 
 const reducer = combineReducers({
   recipe: recipe.reducer,
@@ -36,10 +35,6 @@ export const App = () => {
 
           <Route path="/post">
             <CreateNew />
-          </Route>
-
-          <Route path="/secret">
-            <Secret />
           </Route>
 
           <Route path="/signup" exact>

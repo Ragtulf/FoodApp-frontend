@@ -6,7 +6,6 @@ import { ShareButton } from '../components/Button/ShareButton'
 import avatars01 from '../components/Avatars2/avatars01.svg'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
-// const signupURL = 'http://localhost:8080/signup'
 
 export const SignupForm = () => {
   const [userName, setUserName] = useState('')
@@ -61,8 +60,7 @@ export const SignupForm = () => {
           type="text"
           onChange={(event) => setUserName(event.target.value)}
           value={userName}
-          placeholder="Your name"
-        />
+          placeholder="Your name" />
       </SignupLabel>
 
       <SignupLabel>
@@ -72,8 +70,7 @@ export const SignupForm = () => {
           type="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}
-          placeholder="******"
-        />
+          placeholder="******" />
       </SignupLabel>
 
       <SignupLabel>
@@ -83,8 +80,7 @@ export const SignupForm = () => {
           type="email"
           onChange={(event) => setEmail(event.target.value)}
           value={email}
-          placeholder="hey@hey.com"
-        />
+          placeholder="hey@hey.com" />
       </SignupLabel>
 
       <ShareButton buttonName="Sign Up" />

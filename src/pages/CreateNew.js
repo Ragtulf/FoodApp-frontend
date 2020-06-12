@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components/macro'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert'
 import { useSelector } from 'react-redux'
 import { DynamicInput } from '../components/DynamicInput'
@@ -12,7 +12,6 @@ export const CreateNew = () => {
   const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
   const [tags, setTags] = useState([{ value: null }])
-  // const { id } = useParams()
   const fileInput = useRef()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -24,7 +23,6 @@ export const CreateNew = () => {
   })
 
   const handleSubmit = (event) => {
-    console.log('OnClick:', event)
     event.preventDefault()
 
     fetch('https://grymt-food-app.herokuapp.com/recipes', {
@@ -40,24 +38,17 @@ export const CreateNew = () => {
     })
       .then((res) => {
         if (!res.ok) {
-          console.log('error')
-          console.log('ingredients', ingredients)
-          console.log(res.json)
           swal({
             text: 'Make sure you are logged in!',
-            icon: "warning",
+            icon: 'warning',
             button: {
               text: 'Try again'
-            },
+            }
           })
         } else {
-          console.log('JSON:', res.json)
           return res.json()
         }
       })
-      // .then(() => {
-      //   history.push('/')
-      // })
       .then(({ _id }) => {
         const formData = new FormData()
         formData.append('image', fileInput.current.files[0])
@@ -66,11 +57,11 @@ export const CreateNew = () => {
           body: formData
         })
           .then((res) => res.json())
-          .then((json) => {
-            console.log(json)
+          .then(() => {
+            history.push('/')
           })
       })
-      .catch(err => console.log('error', err))
+      .catch((err) => console.log('error', err))
   }
 
   return (
@@ -101,14 +92,12 @@ export const CreateNew = () => {
         <InputField
           type="file"
           ref={fileInput}
-          // onChange={(event) => setImage(event.target.value)}
-          // value={image}
           placeholder="Image" />
       </RecipeLabel>
 
       <RecipeLabel>
         Ingredients:
-        <DynamicInput placeholderText="Add Ingredient" buttonText='+' fields={ingredients} setFields={setIngredients} />
+        <DynamicInput placeholderText="Add Ingredient" buttonText="+" fields={ingredients} setFields={setIngredients} />
       </RecipeLabel>
 
       <RecipeLabel>
@@ -118,8 +107,7 @@ export const CreateNew = () => {
           type="text"
           onChange={(event) => setDirections(event.target.value)}
           value={directions}
-          placeholder="How to prepare"
-        />
+          placeholder="How to prepare" />
       </RecipeLabel>
 
       <RecipeLabel>

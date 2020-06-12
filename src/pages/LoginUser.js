@@ -6,7 +6,6 @@ import swal from 'sweetalert'
 import { user } from '../reducers/user'
 import { ShareButton } from '../components/Button/ShareButton'
 
-
 const loginURL = 'https://grymt-food-app.herokuapp.com/login'
 // const loginURL = 'http://localhost:8080/login'
 
@@ -16,7 +15,7 @@ export const LoginForm = () => {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  const handleSignup = event => {
+  const handleSignup = (event) => {
     event.preventDefault()
 
     fetch(loginURL, {
@@ -24,20 +23,18 @@ export const LoginForm = () => {
       body: JSON.stringify({ userName, password }),
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           setUserName('')
           setPassword('')
-          console.log('Error on fetch')
           swal({
             text: 'Something went wrong',
-            icon: "error",
+            icon: 'error',
             button: {
               text: 'Try again'
-            },
+            }
           })
         } else {
-          console.log('status ok')
           return res.json()
         }
       })
@@ -48,7 +45,7 @@ export const LoginForm = () => {
           history.push('/')
         }
       })
-      .catch(err => console.log('errors', err))
+      .catch((err) => console.log('errors', err))
   }
 
   return (
@@ -60,8 +57,7 @@ export const LoginForm = () => {
           type="text"
           onChange={(event) => setUserName(event.target.value)}
           value={userName}
-          placeholder="Your name"
-        />
+          placeholder="Your name" />
       </SignupLabel>
 
       <SignupLabel>
@@ -72,11 +68,10 @@ export const LoginForm = () => {
           type="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}
-          placeholder="******"
-        />
+          placeholder="******" />
       </SignupLabel>
 
-      <ShareButton buttonName='Login' />
+      <ShareButton buttonName="Login" />
     </UserForm>
   )
 }

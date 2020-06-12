@@ -55,6 +55,8 @@ const User = styled.p`
 
 const FoodImage = styled.img`
   width: 100%;
+  max-height: 400px;
+  object-fit: cover;
   align-self: flex-end;
 `
 
