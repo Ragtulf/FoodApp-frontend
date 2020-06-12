@@ -10,7 +10,7 @@ import { CreateNew } from './pages/CreateNew'
 import { Header } from './components/Header/Header'
 import { SignupForm } from './pages/SignupForm'
 import { LoginForm } from './pages/LoginUser'
-import { UserHeader } from './components/Header/UserHeader'
+import { ProfileView } from './pages/ProfileView'
 
 const reducer = combineReducers({
   recipe: recipe.reducer,
@@ -47,7 +47,7 @@ export const App = () => {
           </Route>
 
           <Route path="/profile" exact>
-            <UserHeader />
+            <ProfileView />
           </Route>
 
         </Switch>

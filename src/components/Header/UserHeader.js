@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../Button/ShareButton'
 
-
 export const UserHeader = () => {
   const [user, setUser] = useState(null)
   const id = useSelector((store) => store.user.id)
@@ -21,7 +20,7 @@ export const UserHeader = () => {
   }, [id])
 
   return (
-    <TopCardContainer>
+    <FlexContainer>
       <CardHeading>
         <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
         <UserInfo>
@@ -32,17 +31,14 @@ export const UserHeader = () => {
       <StyledLink to='/post'>
         <ShareButton buttonName="Start sharing" />
       </StyledLink>
-    </TopCardContainer>
+    </FlexContainer>
   )
 }
 
-const TopCardContainer = styled.div`
+const FlexContainer = styled.div`
   display: flex; 
   flex-direction: column;
-  background-color: #fffbfa;
   max-width: 100%;
-  margin: 0px 10px;
-  border-radius: 20px;
 `
 
 const Avatar = styled.img`

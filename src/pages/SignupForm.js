@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
@@ -14,6 +14,8 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
+  const fileInput = useRef()
+
   // AVATARTEST
   // const avatarsArray = [avatars01]
 
@@ -24,7 +26,7 @@ export const SignupForm = () => {
   const handleSignup = (event) => {
     event.preventDefault()
 
-    setAvatar(avatars01)
+    // setAvatar(avatars01)
 
     // const pickAvatar = () => {
     //   const image = randomSelector(avatarsArray)
@@ -41,15 +43,29 @@ export const SignupForm = () => {
         if (!res.ok) {
           console.log('Error on fetch')
         } else {
+          console.log(res.json)
           return res.json()
         }
       })
-      .then(() => {
-        setUserName('')
-        setEmail('')
-        setPassword('')
-        history.push('/login')
+      .then(({ _id }) => {
+        const formData = new FormData()
+        formData.append('image', fileInput.current.files[0])
+        fetch(`https://grymt-food-app.herokuapp.com/login/user/${_id}/image`, {
+          method: 'POST',
+          body: formData
+        })
+          .then((res) => res.json())
+          .then((json) => {
+            console.log('JSON:', json)
+            // history.push('/login')
+          })
       })
+      // .then(() => {
+      //   setUserName('')
+      //   setEmail('')
+      //   setPassword('')
+      //   history.push('/login')
+      // })
       .catch((err) => console.log('errors', err))
   }
 
@@ -83,6 +99,14 @@ export const SignupForm = () => {
           onChange={(event) => setEmail(event.target.value)}
           value={email}
           placeholder="hey@hey.com" />
+      </SignupLabel>
+
+      <SignupLabel>
+        Image:
+        <InputField
+          type="file"
+          ref={fileInput}
+          placeholder="Profile pic" />
       </SignupLabel>
 
       <SignupLabel>
