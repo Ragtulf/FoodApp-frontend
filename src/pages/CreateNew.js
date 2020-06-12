@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components/macro'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import swal from 'sweetalert'
 import { useSelector } from 'react-redux'
 import { DynamicInput } from '../components/DynamicInput'
@@ -11,8 +11,9 @@ export const CreateNew = () => {
   const [shortDescription, setShortDescription] = useState('')
   const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
-  // const [image, setImage] = useState('')
   const [tags, setTags] = useState([{ value: null }])
+  // const { id } = useParams()
+  const fileInput = useRef()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
 
@@ -50,12 +51,24 @@ export const CreateNew = () => {
             },
           })
         } else {
-          console.log(res.json)
+          console.log('JSON:', res.json)
           return res.json()
         }
       })
-      .then(() => {
-        history.push('/')
+      // .then(() => {
+      //   history.push('/')
+      // })
+      .then(({ _id }) => {
+        const formData = new FormData()
+        formData.append('image', fileInput.current.files[0])
+        fetch(`https://grymt-food-app.herokuapp.com/recipes/${_id}/image`, {
+          method: 'POST',
+          body: formData
+        })
+          .then((res) => res.json())
+          .then((json) => {
+            console.log(json)
+          })
       })
       .catch(err => console.log('error', err))
   }
@@ -83,14 +96,15 @@ export const CreateNew = () => {
           placeholder="Describe your recipe" />
       </RecipeLabel>
 
-      {/* <RecipeLabel>
+      <RecipeLabel>
         Image:
         <InputField
-          type="text"
-          onChange={(event) => setImage(event.target.value)}
-          value={image}
+          type="file"
+          ref={fileInput}
+          // onChange={(event) => setImage(event.target.value)}
+          // value={image}
           placeholder="Image" />
-      </RecipeLabel> */}
+      </RecipeLabel>
 
       <RecipeLabel>
         Ingredients:

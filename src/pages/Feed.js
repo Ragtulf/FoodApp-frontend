@@ -29,16 +29,16 @@ export const Feed = () => {
       {recipes && recipes.map((item) => (
         <div key={item._id}>
           {loggedIn && <StyledLink to={`/recipes/${item._id}`}>
-            <CardHeader 
+            <CardHeader
               title={item.title}
-              image={item.image}
+              image={item.imageUrl}
               shortDes={item.shortDescription}
               userName={item.createdBy ? item.createdBy.userName : 'Anonymous'}
             />
           </StyledLink>}
           {!loggedIn && <CardHeader
             title={item.title}
-            image={item.image}
+            image={item.imageUrl}
             shortDes={item.shortDescription}
             userName={item.createdBy ? item.createdBy.userName : 'Anonymous'}
           />}
