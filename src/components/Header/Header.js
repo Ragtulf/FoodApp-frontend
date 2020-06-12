@@ -36,6 +36,11 @@ export const Header = () => {
           onClick={handleLogout}>
             Log Out
         </LoggedUser>
+
+        <Redirect to="/profile">
+            <LoggedUser>profile</LoggedUser>
+          </Redirect>
+        
       </UserLog>}
     </Heading>
   )

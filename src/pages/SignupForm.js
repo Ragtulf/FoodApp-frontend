@@ -12,6 +12,7 @@ export const SignupForm = () => {
   const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [bio, setBio] = useState('')
   const history = useHistory()
   // AVATARTEST
   // const avatarsArray = [avatars01]
@@ -82,6 +83,17 @@ export const SignupForm = () => {
           onChange={(event) => setEmail(event.target.value)}
           value={email}
           placeholder="hey@hey.com" />
+      </SignupLabel>
+
+      <SignupLabel>
+        About me:
+        <InputField
+          required
+          type="text"
+          onChange={(event) => setBio(event.target.value)}
+          value={bio}
+          placeholder="Write a short bio"
+          maxLength="140" />
       </SignupLabel>
 
       <ShareButton buttonName="Sign Up" />

@@ -38,10 +38,11 @@ export const LoginForm = () => {
           return res.json()
         }
       })
-      .then(({ accessToken }) => {
+      .then(({ accessToken, _id }) => {
         if (accessToken) {
           dispatch(user.actions.login())
           dispatch(user.actions.access(accessToken))
+          dispatch(user.actions.userId(_id))
           history.push('/')
         }
       })
