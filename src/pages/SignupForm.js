@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
+import { user } from '../reducers/user'
 
-import avatars01 from '../components/Avatars2/avatars01.svg'
+// import avatars01 from '../components/Avatars2/avatars01.svg'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
@@ -14,6 +16,7 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
+  const dispatch = useDispatch()
   const fileInput = useRef()
 
   // AVATARTEST
@@ -47,17 +50,18 @@ export const SignupForm = () => {
           return res.json()
         }
       })
-      .then(({ _id }) => {
+      .then(({ id }) => {
         const formData = new FormData()
         formData.append('image', fileInput.current.files[0])
-        fetch(`https://grymt-food-app.herokuapp.com/login/user/${_id}/image`, {
+        fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}/image`, {
           method: 'POST',
           body: formData
         })
           .then((res) => res.json())
           .then((json) => {
-            console.log('JSON:', json)
-            // history.push('/login')
+            console.log('JSON:', json.profilePic)
+            dispatch(user.actions.userImage(json.profilePic))
+            history.push('/login')
           })
       })
       // .then(() => {

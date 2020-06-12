@@ -8,6 +8,7 @@ export const UserHeader = () => {
   const [user, setUser] = useState(null)
   const id = useSelector((store) => store.user.id)
   // const loggedIn = useSelector((store) => store.user.loggedIn)
+  const profilePic = useSelector((store) => store.user.image)
 
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
@@ -16,13 +17,14 @@ export const UserHeader = () => {
         setUser(json)
         console.log(id)
         console.log(json)
+        console.log(profilePic)
       })
   }, [id])
 
   return (
     <FlexContainer>
       <CardHeading>
-        <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
+        <Avatar src={profilePic ? profilePic : "/Avatars/Asset1.svg"} alt="avatar" />
         <UserInfo>
           {user && <Username>{user.userName}</Username>}
           {user && <Bio>{user.shortBio}</Bio>}
