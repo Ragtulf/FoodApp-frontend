@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   loggedIn: false,
   accessToken: '',
-  id: ''
+  id: '',
+  image: ''
 }
 
 export const user = createSlice({
@@ -21,6 +22,9 @@ export const user = createSlice({
     },
     userId: (state, action) => {
       state.id = action.payload
+    },
+    userImage: (state, action) => {
+      state.image = action.payload
     }
   }
 })

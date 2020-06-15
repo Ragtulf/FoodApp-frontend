@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
+import { user } from '../reducers/user'
 
-import avatars01 from '../components/Avatars2/avatars01.svg'
+// import avatars01 from '../components/Avatars2/avatars01.svg'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
@@ -14,6 +16,7 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
+  const dispatch = useDispatch()
   const fileInput = useRef()
 
   // AVATARTEST
