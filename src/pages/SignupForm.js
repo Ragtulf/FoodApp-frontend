@@ -47,17 +47,17 @@ export const SignupForm = () => {
           return res.json()
         }
       })
-      .then(({ _id }) => {
+      .then(({ id }) => {
         const formData = new FormData()
         formData.append('image', fileInput.current.files[0])
-        fetch(`https://grymt-food-app.herokuapp.com/login/user/${_id}/image`, {
+        fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}/image`, {
           method: 'POST',
           body: formData
         })
           .then((res) => res.json())
           .then((json) => {
             console.log('JSON:', json)
-            // history.push('/login')
+            history.push('/login')
           })
       })
       // .then(() => {
