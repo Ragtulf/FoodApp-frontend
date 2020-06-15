@@ -5,6 +5,7 @@ import swal from 'sweetalert'
 import { useSelector } from 'react-redux'
 import { DynamicInput } from '../components/DynamicInput'
 import { ShareButton } from '../components/Button/ShareButton'
+import { UserHeader } from '../components/Header/UserHeader'
 
 export const CreateNew = () => {
   const [title, setTitle] = useState('')
@@ -65,70 +66,77 @@ export const CreateNew = () => {
   }
 
   return (
-    <RecipeForm
-      onSubmit={(event) => handleSubmit(event)}>
-      <RecipeLabel>
-        Title:
-        <InputField
-          required
-          type="text"
-          onChange={(event) => setTitle(event.target.value)}
-          value={title}
-          placeholder="Name of your recipe" />
-      </RecipeLabel>
+    <BackgroundContainer>
+      <UserHeader />
+      <RecipeForm
+        onSubmit={(event) => handleSubmit(event)}>
 
-      <RecipeLabel>
-        Short Description:
-        <InputField
-          required
-          type="text"
-          onChange={(event) => setShortDescription(event.target.value)}
-          value={shortDescription}
-          placeholder="Describe your recipe" />
-      </RecipeLabel>
+        <RecipeLabel>
+          Title:
+          <InputField
+            required
+            type="text"
+            onChange={(event) => setTitle(event.target.value)}
+            value={title}
+            placeholder="Name of your recipe" />
+        </RecipeLabel>
 
-      <RecipeLabel>
-        Image:
-        <InputField
-          type="file"
-          ref={fileInput}
-          placeholder="Image" />
-      </RecipeLabel>
+        <RecipeLabel>
+          Short Description:
+          <InputField
+            required
+            type="text"
+            onChange={(event) => setShortDescription(event.target.value)}
+            value={shortDescription}
+            placeholder="Describe your recipe" />
+        </RecipeLabel>
 
-      <RecipeLabel>
-        Ingredients:
-        <DynamicInput placeholderText="Add Ingredient" buttonText="+" fields={ingredients} setFields={setIngredients} />
-      </RecipeLabel>
+        <RecipeLabel>
+          Image:
+          <InputField
+            type="file"
+            ref={fileInput}
+            placeholder="Image" />
+        </RecipeLabel>
 
-      <RecipeLabel>
-        Directions:
-        <InputField
-          required
-          type="text"
-          onChange={(event) => setDirections(event.target.value)}
-          value={directions}
-          placeholder="How to prepare" />
-      </RecipeLabel>
+        <RecipeLabel>
+          Ingredients:
+          <DynamicInput placeholderText="Add Ingredient" buttonText="+" fields={ingredients} setFields={setIngredients} />
+        </RecipeLabel>
 
-      <RecipeLabel>
-        Tags:
-        <DynamicInput placeholderText="Add Tag" buttonText="+" fields={tags} setFields={setTags} />
-      </RecipeLabel>
+        <RecipeLabel>
+          Directions:
+          <InputField
+            required
+            type="text"
+            onChange={(event) => setDirections(event.target.value)}
+            value={directions}
+            placeholder="How to prepare" />
+        </RecipeLabel>
 
-      <ShareButton buttonName="Share recipe" />
+        <RecipeLabel>
+          Tags:
+          <DynamicInput placeholderText="Add Tag" buttonText="+" fields={tags} setFields={setTags} />
+        </RecipeLabel>
 
-    </RecipeForm>
+        <ShareButton buttonName="Share recipe" />
+
+      </RecipeForm>
+    </BackgroundContainer>
   )
 }
+
+const BackgroundContainer = styled.div`
+  background: #FFFBFA;
+  border-radius: 20px;
+  margin: 0px 10px 40px 10px;
+`
 
 const RecipeForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: #FFFBFA;
-  border-radius: 20px;
-  margin: 0px 10px;
   padding: 10px;
   `
 

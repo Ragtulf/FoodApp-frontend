@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
-import { user } from '../reducers/user'
+// import { user } from '../reducers/user'
 
 // import avatars01 from '../components/Avatars2/avatars01.svg'
 
@@ -16,7 +16,7 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const fileInput = useRef()
 
   // AVATARTEST

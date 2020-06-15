@@ -7,7 +7,6 @@ import { user } from '../reducers/user'
 import { ShareButton } from '../components/Button/ShareButton'
 
 const loginURL = 'https://grymt-food-app.herokuapp.com/login'
-// const loginURL = 'http://localhost:8080/login'
 
 export const LoginForm = () => {
   const [userName, setUserName] = useState('')

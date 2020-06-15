@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export const CardHeader = ({ title, image, shortDes, userName }) => {
+export const CardHeader = ({ title, image, shortDes, userName, profilePic }) => {
+  console.log(profilePic)
   return (
     <TopCardContainer>
       <CardHeading>
-        <Avatar src="/Avatars/Asset1.svg" alt="avatar" />
+        <Avatar src={profilePic} alt="avatar" />
         <TitleName>
           <RecipeTitle>{title}</RecipeTitle>
           <User>{userName}</User>
@@ -28,6 +29,9 @@ const TopCardContainer = styled.div`
 
 const Avatar = styled.img`
   width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
   padding: 10px;
 `
 
