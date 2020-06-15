@@ -12,6 +12,7 @@ export const UserHeader = () => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
       .then((res) => res.json())
       .then((json) => {
+        console.log('UserHeader:', json)
         setUser(json)
         console.log(id)
         console.log(json)
@@ -22,7 +23,7 @@ export const UserHeader = () => {
   return (
     <FlexContainer>
       <CardHeading>
-        <Avatar src={user ? user.profilePic : '/Avatars/Asset1.svg'} alt="avatar" />
+        {user && <Avatar src={user && user.profilePic ? user.profilePic : `/Avatars2/avatars${user.avatar}.svg`} alt="avatar" />}
         <UserInfo>
           {user && <Username>{user.userName}</Username>}
           {user && <Bio>{user.shortBio}</Bio>}
@@ -31,6 +32,8 @@ export const UserHeader = () => {
     </FlexContainer>
   )
 }
+
+// {item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
 
 const FlexContainer = styled.div`
   display: flex; 

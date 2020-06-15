@@ -20,6 +20,10 @@ export const Recipe = () => {
   return (
     <div>
       {recipe && <CardHeader
+        profilePic={recipe.createdBy
+          && recipe.createdBy.profilePic
+          ? recipe.createdBy.profilePic
+          : `/Avatars2/avatars${recipe.createdBy.avatar}.svg`}
         title={recipe.title}
         image={recipe.imageUrl}
         shortDes={recipe.shortDescription}
