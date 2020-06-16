@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-// import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
-// import { user } from '../reducers/user'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
@@ -14,7 +12,6 @@ export const SignupForm = () => {
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
-  // const dispatch = useDispatch()
   const fileInput = useRef()
 
   const handleSignup = (event) => {
@@ -57,6 +54,7 @@ export const SignupForm = () => {
 
   return (
     <UserForm onSubmit={handleSignup}>
+      <SignupTitle>Sign Up</SignupTitle>
       <SignupLabel>
         User name:
         <InputField
@@ -87,13 +85,20 @@ export const SignupForm = () => {
           placeholder="hey@hey.com" />
       </SignupLabel>
 
-      <SignupLabel>
+      {/* <ProfileLabel
+        for='file'>
+        +
+      </ProfileLabel> */}
+      <PicInput
+        type='file' ref={fileInput} />
+
+      {/* <SignupLabel>
         Image:
         <InputField
           type="file"
           ref={fileInput}
           placeholder="Profile pic" />
-      </SignupLabel>
+      </SignupLabel> */}
 
       <SignupLabel>
         About me:
@@ -122,6 +127,14 @@ const UserForm = styled.form`
   padding: 10px;
   `
 
+const SignupTitle = styled.h2`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  color: #8DCAC7;
+`
+
 const SignupLabel = styled.label`
   display: flex;
   flex-direction: column;
@@ -143,3 +156,49 @@ const InputField = styled.input`
     color: #F56C54;
   }
   `
+
+const PicInput = styled.input`
+  color: transparent;
+
+  &::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  &::before {
+    content: '+';
+    color: transparent;
+    display: inline-block;
+    background-image: url(${process.env.PUBLIC_URL + '/assets/profileButton.svg'});
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &:active::before {
+    background-image: none;
+  }
+`
+
+// const PicInput = styled.input`
+//   width: 0.1px;
+//   height: 0.1px;
+//   opacity: 0;
+//   overflow: hidden;
+//   position: absolute;
+//   z-index: -1;
+// `
+
+// const ProfileLabel = styled.label`
+//   background-color: #F97A2D;
+//   width: 106px;
+//   height: 106px;
+//   border-radius: 50%;
+
+//   ${PicInput}: {
+//     font-weight: 700;
+//     color: white;
+//     background-color: black;
+//     display: inline-block
+//   }
+// `

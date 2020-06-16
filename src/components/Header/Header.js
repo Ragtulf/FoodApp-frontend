@@ -38,9 +38,9 @@ export const Header = () => {
         </LoggedUser>
 
         <Redirect to="/profile">
-            <LoggedUser>profile</LoggedUser>
-          </Redirect>
-        
+          {/* <LoggedUser>Profile</LoggedUser> */}
+          <ProfileLink src="/assets/profile-icon.svg" alt="Profile" />
+        </Redirect>
       </UserLog>}
     </Heading>
   )
@@ -78,4 +78,10 @@ const LoggedUser = styled.button`
   border-radius: 6px;
   margin-left: 10px;
   border: none;
+`
+
+const ProfileLink = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 0 15px 0 15px;
 `
