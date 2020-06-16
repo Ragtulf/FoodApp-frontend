@@ -33,8 +33,6 @@ export const UserHeader = () => {
   )
 }
 
-// {item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
-
 const FlexContainer = styled.div`
   display: flex; 
   flex-direction: column;

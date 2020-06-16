@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { UserHeader } from '../components/Header/UserHeader'
 import { ShareButton } from '../components/Button/ShareButton'
+import { Fab } from '../components/Button/Fab'
 
 export const ProfileView = () => {
+  const [userRecipe, setUserRecipe] = useState(null)
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
+  const userID = useSelector((store) => store.user.id)
 
   useEffect(() => {
     if (!accessToken) {
@@ -15,12 +18,31 @@ export const ProfileView = () => {
     }
   })
 
+  useEffect(() => {
+    fetch(`https://grymt-food-app.herokuapp.com/users/${userID}/recipes`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log('User profile:', json)
+        setUserRecipe(json)
+      })
+  }, [userID])
+
   return (
     <UserContainer>
       <UserHeader />
-      <StyledLink to='/post'>
-        <ShareButton buttonName="Start sharing" />
-      </StyledLink>
+      <RecipeContainer>
+        {userRecipe && userRecipe.map((item) => (
+          <StyledLink to={`/recipes/${item._id}`} key={item._id}>
+            <RecipeImage src={item.imageUrl} alt={item.title} />
+            <RecipeTitle>{item.title}</RecipeTitle>
+          </StyledLink>
+        ))}
+      </RecipeContainer>
+      {userRecipe && userRecipe.length === 0
+        ? <ShareLink to="/post">
+          <ShareButton buttonName="Start sharing" />
+        </ShareLink>
+        : <Fab />}
     </UserContainer>
   )
 }
@@ -36,7 +58,42 @@ const UserContainer = styled.div`
 
 const StyledLink = styled(Link)`
   display: flex;
+  flex-direction: column; 
   justify-content: center;
+  align-items: center;
   text-decoration: none;
-  margin: 30px 0;
+  margin: 30px 5px;
+  width: 45%;
+`
+
+const RecipeTitle = styled.p`
+  color: #31556D;
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  margin-top: 5px;
+  margin-left: 10px;
+  align-self: flex-start;
+`
+
+const RecipeImage = styled.img`
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+  object-fit: cover;
+`
+
+const RecipeContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+
+const ShareLink = styled(Link)`
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 30px 5px;
 `
