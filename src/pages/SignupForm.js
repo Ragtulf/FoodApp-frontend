@@ -7,8 +7,8 @@ const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
 export const SignupForm = () => {
   const [userName, setUserName] = useState('')
-  // const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
+  const [fileName, setFileName] = useState()
   const [password, setPassword] = useState('')
   const [shortBio, setShortBio] = useState('')
   const history = useHistory()
@@ -43,12 +43,6 @@ export const SignupForm = () => {
             history.push('/login')
           })
       })
-      // .then(() => {
-      //   setUserName('')
-      //   setEmail('')
-      //   setPassword('')
-      //   history.push('/login')
-      // })
       .catch((err) => console.log('errors', err))
   }
 
@@ -85,20 +79,13 @@ export const SignupForm = () => {
           placeholder="hey@hey.com" />
       </SignupLabel>
 
-      {/* <ProfileLabel
-        for='file'>
-        +
-      </ProfileLabel> */}
       <PicInput
-        type='file' ref={fileInput} />
-
-      {/* <SignupLabel>
-        Image:
-        <InputField
-          type="file"
-          ref={fileInput}
-          placeholder="Profile pic" />
-      </SignupLabel> */}
+        type='file'
+        ref={fileInput}
+        onChange={(event) => {
+          setFileName(event.target.files[0].name)
+        }} />
+      <h4>{fileName}</h4>
 
       <SignupLabel>
         About me:

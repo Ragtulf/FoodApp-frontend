@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { ui } from './reducers/ui'
 import { recipe } from './reducers/recipe'
 import { user } from './reducers/user'
 import { Feed } from './pages/Feed'
@@ -14,7 +15,8 @@ import { ProfileView } from './pages/ProfileView'
 
 const reducer = combineReducers({
   recipe: recipe.reducer,
-  user: user.reducer
+  user: user.reducer,
+  ui: ui.reducer,
 })
 
 const store = configureStore({ reducer })

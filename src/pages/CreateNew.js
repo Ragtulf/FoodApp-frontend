@@ -13,6 +13,7 @@ export const CreateNew = () => {
   const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
   const [tags, setTags] = useState([{ value: null }])
+  const [fileName, setFileName] = useState()
   const fileInput = useRef()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -96,8 +97,13 @@ export const CreateNew = () => {
           <InputField
             type="file"
             ref={fileInput}
-            placeholder="Image" />
+            placeholder="Image"
+            onChange={(event) => {
+              setFileName(event.target.files[0].name)
+            }} />
         </RecipeLabel>
+
+        <h4>{fileName}</h4>
 
         <RecipeLabel>
           Ingredients:

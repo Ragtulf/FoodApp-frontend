@@ -12,11 +12,7 @@ export const UserHeader = () => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log('UserHeader:', json)
         setUser(json)
-        console.log(id)
-        console.log(json)
-        // console.log(profilePic)
       })
   }, [id])
 

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export const CardHeader = ({ title, image, shortDes, userName, profilePic }) => {
-  console.log(profilePic)
   return (
     <TopCardContainer>
       <CardHeading>
