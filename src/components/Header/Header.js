@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { user } from '../../reducers/user'
@@ -37,10 +37,12 @@ export const Header = () => {
             Log Out
         </LoggedUser>
 
-        <Redirect to="/profile">
-          {/* <LoggedUser>Profile</LoggedUser> */}
+        <StyledRedirect to="/profile"
+          activeStyle={{
+            display: 'none'
+          }}>
           <ProfileLink src="/assets/profile-icon.svg" alt="Profile" />
-        </Redirect>
+        </StyledRedirect>
       </UserLog>}
     </Heading>
   )
@@ -52,8 +54,13 @@ const Heading = styled.header`
   align-items: center;
 `
 
-const Redirect = styled(Link)`
+const Redirect = styled(NavLink)`
   text-decoration: none;
+`
+
+const StyledRedirect = styled(NavLink)`
+  text-decoration: none;
+  height: 26px;
 `
 
 const Logo = styled.img`
