@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { ui } from '../reducers/ui'
 import { CardHeader } from '../components/Card/CardHeader'
 import { CardFooter } from '../components/Card/CardFooter'
 import { Fab } from '../components/Button/Fab'
@@ -9,13 +10,16 @@ import { Fab } from '../components/Button/Fab'
 export const Feed = () => {
   const [recipes, setRecipes] = useState(null)
   const loggedIn = useSelector((store) => store.user.loggedIn)
+  const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(ui.actions.setLoading(true))
     fetch('https://grymt-food-app.herokuapp.com/recipes')
       .then((res) => res.json())
       .then((json) => {
         console.log(json)
         setRecipes(json)
+        dispatch(ui.actions.setLoading(false))
       })
   }, [])
 

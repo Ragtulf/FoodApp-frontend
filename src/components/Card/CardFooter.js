@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 export const CardFooter = ({ tagsArray }) => {
@@ -6,7 +7,9 @@ export const CardFooter = ({ tagsArray }) => {
     <Footer>
       <TagContainer>
         {tagsArray.tags.map((tag, index) => (
-          <Tag key={index}>{tag}</Tag>
+          <StyledLink to={`/tags/${tag}`}>
+            <Tag key={index}>{tag}</Tag>
+          </StyledLink>
         ))}
       </TagContainer>
     </Footer>
@@ -24,6 +27,9 @@ const TagContainer = styled.div`
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
+`
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `
 
 const Tag = styled.p`

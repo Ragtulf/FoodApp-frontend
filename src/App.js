@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { ui } from './reducers/ui'
 import { recipe } from './reducers/recipe'
 import { user } from './reducers/user'
+import { LoadingIndicator } from './components/LoadingIndicator'
 import { Feed } from './pages/Feed'
 import { Recipe } from './pages/Recipe'
 import { CreateNew } from './pages/CreateNew'
@@ -12,11 +13,12 @@ import { Header } from './components/Header/Header'
 import { SignupForm } from './pages/SignupForm'
 import { LoginForm } from './pages/LoginUser'
 import { ProfileView } from './pages/ProfileView'
+import { TagList } from './pages/TagList'
 
 const reducer = combineReducers({
   recipe: recipe.reducer,
   user: user.reducer,
-  ui: ui.reducer,
+  ui: ui.reducer
 })
 
 const store = configureStore({ reducer })
@@ -29,10 +31,12 @@ export const App = () => {
         <Switch>
 
           <Route path="/" exact>
+            <LoadingIndicator />
             <Feed />
           </Route>
 
           <Route path="/recipes/:id">
+            <LoadingIndicator />
             <Recipe />
           </Route>
 
@@ -49,7 +53,12 @@ export const App = () => {
           </Route>
 
           <Route path="/profile" exact>
+            <LoadingIndicator />
             <ProfileView />
+          </Route>
+
+          <Route path="/tags/:tag">
+            <TagList />
           </Route>
 
         </Switch>
