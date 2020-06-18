@@ -17,7 +17,7 @@ export const Recipe = ({ recipeId }) => {
         setRecipe(json)
       })
   }, [id])
-  console.log(JSON.stringify(recipe))
+
   return (
     <div>
       {recipe && <CardHeader

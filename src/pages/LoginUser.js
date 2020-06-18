@@ -50,6 +50,7 @@ export const LoginForm = () => {
 
   return (
     <UserForm onSubmit={handleSignup}>
+      <LoginTitle>Login</LoginTitle>
       <SignupLabel>
         User name:
         <InputField
@@ -87,11 +88,19 @@ const UserForm = styled.form`
   padding: 10px;
   `
 
+const LoginTitle = styled.h2`
+  font-family: 'Circular', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  color: #8DCAC7;
+`
+
 const SignupLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin: 10px;
-  color: #31556D;
+  color: #295284;
 `
 
 const InputField = styled.input`
@@ -102,9 +111,11 @@ const InputField = styled.input`
   border: none;
   ::placeholder,
   ::-webkit-input-placeholder {
+    font-family: 'Circular', sans-serif;
     color: #F56C54;
   }
   :-ms-input-placeholder {
     color: #F56C54;
+    font-family: 'Circular', sans-serif;
   }
   `

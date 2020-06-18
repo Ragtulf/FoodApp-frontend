@@ -19,9 +19,11 @@ export const CardFooter = ({ tagsArray }) => {
 const Footer = styled.div`
   padding: 5px;
   margin: -1px 10px 20px 10px;
-  border-radius: 0px 0px 20px 20px;
   max-width: 100%;
   background-color: #fffbfa;
+  border-bottom: 2px solid #FECAC1;
+  border-right: 2px solid #FECAC1;
+  border-left: 2px solid #FECAC1;
 `
 const TagContainer = styled.div`
   margin-left: 10px;
@@ -34,7 +36,7 @@ const StyledLink = styled(Link)`
 
 const Tag = styled.p`
   font-size: 12px;
-  background-color: #f5aa9c;
+  background-color: #EBA661;
   color: #fff;
   padding: 5px;
   border-radius: 2px;

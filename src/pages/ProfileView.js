@@ -53,7 +53,7 @@ const UserContainer = styled.div`
   background-color: #fffbfa;
   max-width: 100%;
   margin: 0px 10px;
-  border-radius: 20px;
+  border: 2px solid #FECAC1;
 `
 
 const StyledLink = styled(Link)`
@@ -72,14 +72,14 @@ const RecipeTitle = styled.p`
   font-weight: 700;
   overflow-wrap: break-word;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 20px;
   align-self: flex-start;
 `
 
 const RecipeImage = styled.img`
   width: 125px;
   height: 125px;
-  border-radius: 10px;
+  border-radius: 2px;
   object-fit: cover;
 `
 

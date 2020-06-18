@@ -11,11 +11,11 @@ export const ShareButton = ({ buttonName }) => {
 }
 
 const ShareBtn = styled.button`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Circular', sans-serif;
   font-size: 17px;
   font-weight: bold;
   background: #8DCAC7;
-  border-radius: 7px;
+  border-radius: 2px;
   color: #FFFBFA;
   border: none;
   padding: 8px;

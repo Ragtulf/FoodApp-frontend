@@ -23,7 +23,9 @@ const TopCardContainer = styled.div`
   background-color: #fffbfa;
   max-width: 100%;
   margin: 0px 10px;
-  border-radius: 20px 20px 0px 0px;
+  border-top: 2px solid #FECAC1;
+  border-right: 2px solid #FECAC1;
+  border-left: 2px solid #FECAC1;
 `
 
 const Avatar = styled.img`
@@ -45,15 +47,17 @@ const TitleName = styled.div`
 `
 
 const RecipeTitle = styled.p`
+  font-weight: 900;
   font-size: 18px;
-  color: #31556D;
+  color: #295284;
   margin: 17px 0 0 0;
 `
 
 const User = styled.p`
+  font-weight: 300;
   font-size: 11px;
-  color: #A4A4A4;
-  margin: 5px 0 0 0;
+  color: #4F6E93;
+  margin: 3px 0 0 0;
 `
 
 const FoodImage = styled.img`
@@ -65,8 +69,8 @@ const FoodImage = styled.img`
 
 const Description = styled.p`
   font-size: 14px;
-  color: #31556D;
-  padding: 10px 10px 0 10px;
+  color: #4F6E93;
+  padding: 15px 10px 0 10px;
   background-color: #fffbfa;
   margin: 0px 10px;
 `

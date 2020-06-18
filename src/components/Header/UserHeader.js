@@ -54,13 +54,14 @@ const UserInfo = styled.div`
 `
 
 const Username = styled.p`
+  font-weight: 900;
   font-size: 18px;
-  color: #31556D;
+  color: #295284;
   margin: 17px 0 0 0;
 `
 
 const Bio = styled.p`
   font-size: 11px;
-  color: #A4A4A4;
+  color: #4F6E93;
   margin: 5px 0 0 0;
 `

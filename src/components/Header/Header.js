@@ -20,30 +20,36 @@ export const Header = () => {
 
       {!loggedIn
         && <UserLog>
-          <Redirect to="/signup">
+          <Redirect to="/signup"
+            activeStyle={{
+              display: 'none'
+            }}>
             <LoggedUser>Sign up</LoggedUser>
           </Redirect>
 
-          <Redirect to="/login">
+          <Redirect to="/login"
+            activeStyle={{
+              display: 'none'
+            }}>
             <LoggedUser>Login</LoggedUser>
           </Redirect>
         </UserLog>
       }
 
       {loggedIn
-      && <UserLog>
-        <LoggedUser
-          onClick={handleLogout}>
+        && <UserLog>
+          <LoggedUser
+            onClick={handleLogout}>
             Log Out
         </LoggedUser>
 
-        <StyledRedirect to="/profile"
-          activeStyle={{
-            display: 'none'
-          }}>
-          <ProfileLink src="/assets/profile-icon.svg" alt="Profile" />
-        </StyledRedirect>
-      </UserLog>}
+          <StyledRedirect to="/profile"
+            activeStyle={{
+              display: 'none'
+            }}>
+            <ProfileLink src="/assets/profile-icon.svg" alt="Profile" />
+          </StyledRedirect>
+        </UserLog>}
     </Heading>
   )
 }
@@ -65,8 +71,8 @@ const StyledRedirect = styled(NavLink)`
 
 const Logo = styled.img`
   padding: 20px;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
 `
 
 const UserLog = styled.div`
@@ -74,15 +80,16 @@ const UserLog = styled.div`
   width: 50%;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 12px;
+  margin-right: 20px;
 `
 
 const LoggedUser = styled.button`
+  font-family: 'Circular';
   font-size: 12px;
   color: #fff;
   padding: 6px;
-  background: #F26A5D;
-  border-radius: 6px;
+  background: #F45647;
+  border-radius: 1px;
   margin-left: 10px;
   border: none;
 `
@@ -90,5 +97,5 @@ const LoggedUser = styled.button`
 const ProfileLink = styled.img`
   width: 25px;
   height: 25px;
-  margin: 0 15px 0 15px;
+  margin: 0 0 0 15px;
 `

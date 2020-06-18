@@ -131,7 +131,7 @@ const ButtonColumn = styled.div`
 `
 
 const SignupTitle = styled.h2`
-  font-family: Roboto;
+  font-family: 'Circular', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;

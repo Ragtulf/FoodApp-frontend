@@ -18,4 +18,6 @@ const IngredientsContainer = styled.div`
   padding: 10px 10px 10px 20px;
   background-color: #fffbfa;
   margin: -1px 10px 0 10px;
+  border-right: 2px solid #FECAC1;
+  border-left: 2px solid #FECAC1;
 `
