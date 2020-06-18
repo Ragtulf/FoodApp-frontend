@@ -31,9 +31,8 @@ export const TagList = () => {
       {tags && tags.map((recipe) => (
         <div key={recipe._id}>
           <StyledLink to={`/recipes/${recipe._id}`}>
-            {recipe && <Recipe />}
+            {recipe && <Recipe recipeId={recipe._id} />}
           </StyledLink>
-
         </div>
       ))}
     </div>

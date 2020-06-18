@@ -48,7 +48,19 @@ export const SignupForm = () => {
 
   return (
     <UserForm onSubmit={handleSignup}>
-      <SignupTitle>Sign Up</SignupTitle>
+      <HeaderDiv>
+        <ButtonColumn>
+          <PicInput
+            type='file'
+            ref={fileInput}
+            onChange={(event) => {
+              setFileName(event.target.files[0].name)
+            }} />
+          <FileName>{fileName}</FileName>
+        </ButtonColumn>
+        <SignupTitle>Sign Up</SignupTitle>
+      </HeaderDiv>
+
       <SignupLabel>
         User name:
         <InputField
@@ -79,14 +91,6 @@ export const SignupForm = () => {
           placeholder="hey@hey.com" />
       </SignupLabel>
 
-      <PicInput
-        type='file'
-        ref={fileInput}
-        onChange={(event) => {
-          setFileName(event.target.files[0].name)
-        }} />
-      <h4>{fileName}</h4>
-
       <SignupLabel>
         About me:
         <InputField
@@ -114,12 +118,25 @@ const UserForm = styled.form`
   padding: 10px;
   `
 
+const HeaderDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const ButtonColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const SignupTitle = styled.h2`
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
   color: #8DCAC7;
+  margin-left: 20px;
 `
 
 const SignupLabel = styled.label`
@@ -146,6 +163,8 @@ const InputField = styled.input`
 
 const PicInput = styled.input`
   color: transparent;
+  width: 106px;
+  height: 106px;
 
   &::-webkit-file-upload-button {
     visibility: hidden;
@@ -167,25 +186,6 @@ const PicInput = styled.input`
   }
 `
 
-// const PicInput = styled.input`
-//   width: 0.1px;
-//   height: 0.1px;
-//   opacity: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   z-index: -1;
-// `
-
-// const ProfileLabel = styled.label`
-//   background-color: #F97A2D;
-//   width: 106px;
-//   height: 106px;
-//   border-radius: 50%;
-
-//   ${PicInput}: {
-//     font-weight: 700;
-//     color: white;
-//     background-color: black;
-//     display: inline-block
-//   }
-// `
+const FileName = styled.p`
+  font-size: 10px;
+`

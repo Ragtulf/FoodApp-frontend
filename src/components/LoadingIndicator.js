@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro'
-// import { loader } from '../../assets/loadingNoSpin.gif'
 
 export const LoadingIndicator = () => {
   const isLoading = useSelector((store) => store.ui.isLoading);

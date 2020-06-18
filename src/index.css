@@ -1,6 +1,11 @@
+@font-face {
+  font-family: 'Circular';
+  src: url('./fonts/LLCircularFamilyTT/CircularTT-Medium.ttf'), local('Circular'), local('Circular')
+}
+
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Circular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F3DDD4;

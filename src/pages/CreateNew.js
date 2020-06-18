@@ -103,8 +103,6 @@ export const CreateNew = () => {
             }} />
         </RecipeLabel>
 
-        <h4>{fileName}</h4>
-
         <RecipeLabel>
           Ingredients:
           <DynamicInput placeholderText="Add Ingredient" buttonText="+" fields={ingredients} setFields={setIngredients} />

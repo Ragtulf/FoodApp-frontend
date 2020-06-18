@@ -5,18 +5,19 @@ import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
 import { CardFooter } from '../components/Card/CardFooter'
 
-export const Recipe = () => {
+export const Recipe = ({ recipeId }) => {
   const [recipe, setRecipe] = useState(null)
   const { id } = useParams()
+  const recId = recipeId || id
 
   useEffect(() => {
-    fetch(`https://grymt-food-app.herokuapp.com/recipes/${id}`)
+    fetch(`https://grymt-food-app.herokuapp.com/recipes/${recId}`)
       .then((res) => res.json())
       .then((json) => {
         setRecipe(json)
       })
   }, [id])
-
+  console.log(JSON.stringify(recipe))
   return (
     <div>
       {recipe && <CardHeader
