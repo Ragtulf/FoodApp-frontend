@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export const DynamicInput = ({ placeholderText, buttonText, fields, setFields }) => {
+export const DynamicInput = ({ placeholderText, fields, setFields }) => {
 
   const handleChange = (index, event) => {
     event.preventDefault()
@@ -16,7 +16,7 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
     const values = [...fields]
     values.push({ value: null })
 
-    console.log("Console log of values: ",values)
+    console.log("Console log of values: ", values)
     setFields(values)
   }
 
@@ -27,10 +27,15 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
   }
 
   return (
-    <div>
+    <DynamicInputField>
+      <DynamicButtons
+        type='button'
+        onClick={() => handleAdd()}>
+        <Add src='/assets/plus.svg' alt="add item" />
+      </DynamicButtons>
       {fields.map((field, idx) => {
         return (
-          <div key={`${field}-${idx}`}>
+          <DynamicInputField key={`${field}-${idx}`}>
             <InputField
               required
               type='text'
@@ -38,19 +43,38 @@ export const DynamicInput = ({ placeholderText, buttonText, fields, setFields })
               value={field.value || ""}
               onChange={event => handleChange(idx, event)}
             />
-            <button
+            <DynamicButtons
               type='button'
-              onClick={() => handleRemove(idx)}>X</button>
-          </div>
+              onClick={() => handleRemove(idx)}>
+              <Remove src='/assets/x.svg' alt="remove item" />
+            </DynamicButtons>
+          </DynamicInputField>
         )
       })}
-      <button
-        type='button'
-        onClick={() => handleAdd()}
-      >{buttonText}</button>
-    </div>
+    </DynamicInputField>
   )
 }
+
+const DynamicInputField = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`
+
+const DynamicButtons = styled.button`
+  background: #F3DDD4;
+  border: none;
+  width: 33px;
+  height: 33px;
+  border-radius: 2px;
+  font-family:'Circular', sans-serif;
+  font-size: 21px;
+  color: #FFFBFA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const InputField = styled.input`
   width: 200px;
@@ -66,4 +90,11 @@ const InputField = styled.input`
   :-ms-input-placeholder {
     color: #F56C54;
   } 
+`
+
+const Remove = styled.img`
+  width: 20px;
+`
+const Add = styled.img`
+  width: 13px;
 `

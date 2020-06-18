@@ -24,5 +24,5 @@ const StyledDiv = styled.div`
   align-items: center;
 `
 const LoadingGif = styled.img`
-  width: 40px;
+  width: 55px;
 `

@@ -13,7 +13,6 @@ export const CreateNew = () => {
   const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
   const [tags, setTags] = useState([{ value: null }])
-  const [fileName, setFileName] = useState()
   const fileInput = useRef()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -92,20 +91,29 @@ export const CreateNew = () => {
             placeholder="Describe your recipe" />
         </RecipeLabel>
 
-        <RecipeLabel>
+        {/* <RecipeLabel>
           Image:
           <InputField
             type="file"
+            style= {{display:'none'}}
             ref={fileInput}
-            placeholder="Image"
-            onChange={(event) => {
-              setFileName(event.target.files[0].name)
-            }} />
-        </RecipeLabel>
+            placeholder="Image" />
+        </RecipeLabel> */}
+
+        <UploadImg>
+          <FileLabel>
+            Upload your image
+            <InputField
+              type="file"
+              style={{ display: 'none' }}
+              ref={fileInput}
+              placeholder="Image" />
+          </FileLabel>
+        </UploadImg>
 
         <RecipeLabel>
-          Ingredients:
-          <DynamicInput placeholderText="Add Ingredient" buttonText="+" fields={ingredients} setFields={setIngredients} />
+          <DynamicTitle>Ingredients:</DynamicTitle>
+          <DynamicInput placeholderText="Add Ingredient" fields={ingredients} setFields={setIngredients} />
         </RecipeLabel>
 
         <RecipeLabel>
@@ -119,8 +127,8 @@ export const CreateNew = () => {
         </RecipeLabel>
 
         <RecipeLabel>
-          Tags:
-          <DynamicInput placeholderText="Add Tag" buttonText="+" fields={tags} setFields={setTags} />
+          <DynamicTitle>Tags:</DynamicTitle>
+          <DynamicInput placeholderText="Add Tag" fields={tags} setFields={setTags} />
         </RecipeLabel>
 
         <ShareButton buttonName="Share recipe" />
@@ -144,6 +152,21 @@ const RecipeForm = styled.form`
   padding: 10px;
   `
 
+const UploadImg = styled.div`
+  width: 200px;
+  padding: 10px;
+  background: #F3DDD4;
+  border-radius: 2px;
+  text-align: center;
+  margin: 35px 0;
+`
+
+const FileLabel = styled.label`
+  color: #F56C54;
+  font-size: 16px;
+  font-weight: 400;
+`
+
 const RecipeLabel = styled.label`
   display: flex;
   flex-direction: column;
@@ -164,4 +187,10 @@ const InputField = styled.input`
   :-ms-input-placeholder {
     color: #F56C54;
   }
+  `
+const DynamicTitle = styled.p`
+    color: #31556D;
+    margin-left: 38px;
+    font-size: 16px;
+    margin-bottom: 0;
   `
