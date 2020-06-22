@@ -37,16 +37,17 @@ export const Feed = () => {
                   shortDes={item.shortDescription}
                   userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
               </StyledLink>
+              <CardFooter tagsArray={item} />
             </CardContainer>}
-          <CardContainer>
-            {!loggedIn && <CardHeader
+            {!loggedIn && <CardContainer>
+            <CardHeader
               profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
               title={item.title}
               image={item.imageUrl}
               shortDes={item.shortDescription}
-              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />}
+              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
             <CardFooter tagsArray={item} />
-          </CardContainer>
+          </CardContainer>}
         </div>))}
       {loggedIn && <Fab />}
     </FeedContainer>
