@@ -30,6 +30,7 @@ const TagContainer = styled.div`
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 `
 
 const StyledLink = styled(Link)`

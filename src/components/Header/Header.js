@@ -73,6 +73,16 @@ const Logo = styled.img`
   padding: 20px;
   width: 65px;
   height: 65px;
+
+  @media (min-width: 600px) {
+    height: 80px;
+    width: 80px;
+  }
+
+  @media (min-width: 800px) {
+    width: 100px;
+    height: 100px;
+  }
 `
 
 const UserLog = styled.div`
@@ -92,6 +102,10 @@ const LoggedUser = styled.button`
   border-radius: 1px;
   margin-left: 10px;
   border: none;
+
+  @media (min-width: 800px) {
+    font-size: 14px;
+  }
 `
 
 const ProfileLink = styled.img`
