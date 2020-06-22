@@ -198,4 +198,7 @@ const PicInput = styled.input`
 
 const FileName = styled.p`
   font-size: 10px;
+  width: 100px;
+  overflow-wrap: break-word;
+  color: #31556D;
 `

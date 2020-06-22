@@ -52,8 +52,18 @@ const UserContainer = styled.div`
   flex-direction: column;
   background-color: #fffbfa;
   max-width: 100%;
-  margin: 0px 10px;
+  margin: 0px 10px 60px 10px;
   border: 2px solid #FECAC1;
+
+  @media (min-width: 600px) {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: 800px) {
+    width: 70%;
+  }
 `
 
 const StyledLink = styled(Link)`
@@ -100,6 +110,7 @@ const RecipeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 30px;
 
   @media (min-width: 600px) {
     justify-content: space-evenly;

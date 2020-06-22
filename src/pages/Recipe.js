@@ -49,6 +49,8 @@ export const Recipe = ({ recipeId }) => {
 }
 
 const ContentContainer = styled.div`
+  margin-bottom: 50px;
+
   @media (min-width: 600px) {
     width: 100%;
     display: flex;

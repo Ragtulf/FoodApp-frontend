@@ -205,8 +205,8 @@ const InputField = styled.input`
   `
 const DynamicTitle = styled.p`
     color: #31556D;
-    margin: 0 0 0 38px;
     font-size: 16px;
+    margin: 0;
   `
 
 const FileName = styled.p`

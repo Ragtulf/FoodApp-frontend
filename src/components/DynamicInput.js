@@ -27,12 +27,7 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
 
   return (
     <InputContainer>
-    {/* <DynamicInputField> */}
-      <DynamicButtons
-        type='button'
-        onClick={() => handleAdd()}>
-        <Add src='/assets/plus.svg' alt="add item" />
-      </DynamicButtons>
+
       {fields.map((field, idx) => {
         return (
           <DynamicInputField key={`${field}-${idx}`}>
@@ -51,7 +46,12 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
           </DynamicInputField>
         )
       })}
-    {/* </DynamicInputField> */}
+      <DynamicButtons
+        type='button'
+        onClick={() => handleAdd()}>
+        <Add src='/assets/plus.svg' alt="add item" />
+      </DynamicButtons>
+
     </InputContainer>
   )
 }
@@ -81,10 +81,14 @@ const DynamicButtons = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:focus {
+    outline: 2px solid #F3DDD4;
+  }
 `
 
 const InputField = styled.input`
-  width: 200px;
+  width: 163px;
   padding: 10px;
   background: #F3DDD4;
   color: #F56C54;

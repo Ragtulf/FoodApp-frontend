@@ -56,6 +56,7 @@ export const Feed = () => {
 
 const FeedContainer = styled.div`
   width: 100%;
+  margin-bottom: 50px;
 
   @media (min-width: 600px) {
     display: flex;

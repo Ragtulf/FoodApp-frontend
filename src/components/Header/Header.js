@@ -67,6 +67,10 @@ const Redirect = styled(NavLink)`
 const StyledRedirect = styled(NavLink)`
   text-decoration: none;
   height: 26px;
+
+  @media (min-width: 800px) {
+    height: 35px;
+  }
 `
 
 const Logo = styled.img`
@@ -112,4 +116,9 @@ const ProfileLink = styled.img`
   width: 25px;
   height: 25px;
   margin: 0 0 0 15px;
+
+  @media (min-width: 800px) {
+    width: 35px;
+    height: 35px;
+  }
 `
