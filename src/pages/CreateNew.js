@@ -13,6 +13,7 @@ export const CreateNew = () => {
   const [ingredients, setIngredients] = useState([{ value: null }])
   const [directions, setDirections] = useState('')
   const [tags, setTags] = useState([{ value: null }])
+  const [fileName, setFileName] = useState()
   const fileInput = useRef()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -102,14 +103,18 @@ export const CreateNew = () => {
 
         <UploadImg>
           <FileLabel>
-            Upload your image
+            <Plus>+</Plus> Upload your image
             <InputField
               type="file"
               style={{ display: 'none' }}
               ref={fileInput}
-              placeholder="Image" />
+              placeholder="Image"
+              onChange={(event) => {
+                setFileName(event.target.files[0].name)
+              }} />
           </FileLabel>
         </UploadImg>
+        <FileName>{fileName}</FileName>
 
         <RecipeLabel>
           <DynamicTitle>Ingredients:</DynamicTitle>
@@ -152,19 +157,30 @@ const RecipeForm = styled.form`
   padding: 10px;
   `
 
+const Plus = styled.span`
+  font-size: 24px;
+  line-height: 21px;
+  color: #FFFBFA;
+  font-weight: 400;
+  margin-right: 10px;
+`
+
 const UploadImg = styled.div`
   width: 200px;
   padding: 10px;
   background: #F3DDD4;
   border-radius: 2px;
   text-align: center;
-  margin: 35px 0;
+  margin-top: 20px;
 `
 
 const FileLabel = styled.label`
   color: #F56C54;
   font-size: 16px;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `
 
 const RecipeLabel = styled.label`
@@ -183,14 +199,21 @@ const InputField = styled.input`
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #F56C54;
+    font-family: 'Circular', sans-serif;
   }
   :-ms-input-placeholder {
     color: #F56C54;
+    font-family: 'Circular', sans-serif;
   }
   `
 const DynamicTitle = styled.p`
     color: #31556D;
-    margin-left: 38px;
+    margin: 0 0 0 38px;
     font-size: 16px;
-    margin-bottom: 0;
   `
+
+const FileName = styled.p`
+  color: #F56C54;
+  font-size: 10px;
+  text-align: center;
+`

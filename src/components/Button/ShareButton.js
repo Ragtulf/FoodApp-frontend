@@ -20,5 +20,5 @@ const ShareBtn = styled.button`
   border: none;
   padding: 8px;
   letter-spacing: .5px;
-  margin: 20px 5px 40px 5px;
+  margin: 40px 5px;
 `

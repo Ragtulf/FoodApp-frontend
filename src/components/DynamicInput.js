@@ -63,7 +63,7 @@ const DynamicInputField = styled.div`
 `
 
 const DynamicButtons = styled.button`
-  background: #F3DDD4;
+  background: #F56C54;
   border: none;
   width: 33px;
   height: 33px;
@@ -86,9 +86,11 @@ const InputField = styled.input`
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #F56C54;
+    font-family: 'Circular', sans-serif;
   }
   :-ms-input-placeholder {
     color: #F56C54;
+    font-family: 'Circular', sans-serif;
   } 
 `
 
