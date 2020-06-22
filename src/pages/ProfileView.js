@@ -64,6 +64,10 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   margin: 30px 5px;
   width: 45%;
+
+  @media (min-width: 600px) {
+    width: 200px;
+  }
 `
 
 const RecipeTitle = styled.p`
@@ -74,6 +78,10 @@ const RecipeTitle = styled.p`
   margin-top: 5px;
   margin-left: 20px;
   align-self: flex-start;
+
+  @media (min-width: 600px) {
+    margin: 3px 0;
+  }
 `
 
 const RecipeImage = styled.img`
@@ -81,12 +89,21 @@ const RecipeImage = styled.img`
   height: 125px;
   border-radius: 2px;
   object-fit: cover;
+
+  @media (min-width: 600px) {
+    width: 200px;
+    height: 200px;
+  }
 `
 
 const RecipeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media (min-width: 600px) {
+    justify-content: space-evenly;
+  }
 `
 
 const ShareLink = styled(Link)`

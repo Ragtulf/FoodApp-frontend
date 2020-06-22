@@ -26,7 +26,8 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
   }
 
   return (
-    <DynamicInputField>
+    <InputContainer>
+    {/* <DynamicInputField> */}
       <DynamicButtons
         type='button'
         onClick={() => handleAdd()}>
@@ -50,9 +51,16 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
           </DynamicInputField>
         )
       })}
-    </DynamicInputField>
+    {/* </DynamicInputField> */}
+    </InputContainer>
   )
 }
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
 
 const DynamicInputField = styled.div`
   display: flex;
