@@ -24,30 +24,63 @@ export const Feed = () => {
   }, [])
 
   return (
-    <div>
+    <FeedContainer>
       {recipes && recipes.map((item) => (
         <div key={item._id}>
           {loggedIn &&
-          <StyledLink to={`/recipes/${item._id}`}>
-            <CardHeader
+            <CardContainer>
+              <StyledLink to={`/recipes/${item._id}`}>
+                <CardHeader
+                  profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
+                  title={item.title}
+                  image={item.imageUrl}
+                  shortDes={item.shortDescription}
+                  userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
+              </StyledLink>
+            </CardContainer>}
+          <CardContainer>
+            {!loggedIn && <CardHeader
               profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
               title={item.title}
               image={item.imageUrl}
               shortDes={item.shortDescription}
-              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
-          </StyledLink>}
-          {!loggedIn && <CardHeader
-            profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
-            title={item.title}
-            image={item.imageUrl}
-            shortDes={item.shortDescription}
-            userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />}
-          <CardFooter tagsArray={item} />
+              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />}
+            <CardFooter tagsArray={item} />
+          </CardContainer>
         </div>))}
       {loggedIn && <Fab />}
-    </div>
+    </FeedContainer>
   )
 }
+
+const FeedContainer = styled.div`
+  width: 100%;
+
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+`
+
+const CardContainer = styled.div`
+  @media (min-width: 600px) {
+    width: 500px;
+  }
+
+  @media (min-width: 800px) {
+    width: 400px;
+    height: 450px;
+    min-height: 450px;
+    max-height: 100%;
+  }
+`
 
 const StyledLink = styled(Link)`
   display: flex;

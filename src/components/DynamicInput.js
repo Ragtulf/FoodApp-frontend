@@ -7,7 +7,7 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
     event.preventDefault()
     const values = [...fields]
     values[index].value = event.target.value
-    // console.log('values:', values)
+
     setFields(values)
   }
 
@@ -16,7 +16,6 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
     const values = [...fields]
     values.push({ value: null })
 
-    console.log("Console log of values: ", values)
     setFields(values)
   }
 

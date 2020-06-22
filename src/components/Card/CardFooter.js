@@ -43,4 +43,5 @@ const Tag = styled.p`
   padding: 5px;
   border-radius: 2px;
   margin-right: 10px;
+  text-transform: lowercase;
 `

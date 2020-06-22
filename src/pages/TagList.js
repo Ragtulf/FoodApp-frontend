@@ -40,6 +40,7 @@ export const TagList = () => {
 }
 
 const TagTitle = styled.h1`
+  margin-top: 0; 
   color: #8DCAC7;
   text-align: center;
 `

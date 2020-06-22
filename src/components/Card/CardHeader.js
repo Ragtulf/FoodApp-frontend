@@ -65,6 +65,10 @@ const FoodImage = styled.img`
   max-height: 400px;
   object-fit: cover;
   align-self: flex-end;
+
+  @media (min-width: 800px) {
+    max-height: 250px;
+  }
 `
 
 const Description = styled.p`
@@ -73,4 +77,8 @@ const Description = styled.p`
   padding: 15px 10px 0 10px;
   background-color: #fffbfa;
   margin: 0px 10px;
+
+  @media (min-width: 800px) {
+    height: 40px;
+  }
 `

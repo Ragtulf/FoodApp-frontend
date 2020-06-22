@@ -75,6 +75,7 @@ export const SignupForm = () => {
         Password:
         <InputField
           required
+          minLength="5"
           type="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}

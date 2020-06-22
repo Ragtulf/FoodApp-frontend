@@ -86,6 +86,7 @@ export const CreateNew = () => {
           Short Description:
           <InputField
             required
+            maxLength="100"
             type="text"
             onChange={(event) => setShortDescription(event.target.value)}
             value={shortDescription}
