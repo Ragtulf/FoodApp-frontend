@@ -92,15 +92,6 @@ export const CreateNew = () => {
             placeholder="Describe your recipe" />
         </RecipeLabel>
 
-        {/* <RecipeLabel>
-          Image:
-          <InputField
-            type="file"
-            style= {{display:'none'}}
-            ref={fileInput}
-            placeholder="Image" />
-        </RecipeLabel> */}
-
         <UploadImg>
           <FileLabel>
             <Plus>+</Plus> Upload your image
@@ -194,6 +185,7 @@ const InputField = styled.input`
   width: 200px;
   padding: 10px;
   background: #F3DDD4;
+  color: #F56C54;
   border-radius: 2px;
   border: none;
   ::placeholder,
@@ -204,6 +196,10 @@ const InputField = styled.input`
   :-ms-input-placeholder {
     color: #F56C54;
     font-family: 'Circular', sans-serif;
+  }
+
+  &:focus {
+    outline: 2px solid #F56C54;
   }
   `
 const DynamicTitle = styled.p`

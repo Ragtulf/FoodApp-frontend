@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { CardHeader } from '../components/Card/CardHeader'
 import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
@@ -9,6 +10,14 @@ export const Recipe = ({ recipeId }) => {
   const [recipe, setRecipe] = useState(null)
   const { id } = useParams()
   const recId = recipeId || id
+  const history = useHistory()
+  const accessToken = useSelector((store) => store.user.accessToken)
+
+  useEffect(() => {
+    if (!accessToken) {
+      history.push('/')
+    }
+  })
 
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/recipes/${recId}`)

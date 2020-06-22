@@ -80,6 +80,7 @@ const InputField = styled.input`
   width: 200px;
   padding: 10px;
   background: #F3DDD4;
+  color: #F56C54;
   border-radius: 2px;
   border: none;
   margin: 5px;
@@ -92,6 +93,10 @@ const InputField = styled.input`
     color: #F56C54;
     font-family: 'Circular', sans-serif;
   } 
+
+  &:focus {
+    outline: 2px solid #F56C54;
+  }
 `
 
 const Remove = styled.img`

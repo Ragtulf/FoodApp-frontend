@@ -22,5 +22,8 @@ const DirectionsComponent = styled.div`
 `
 
 const StyledH3 = styled.h3`
-  margin-top: 0;
+  padding: 8px 0;
+  margin: -1px 0 10px 0;
+  width: 120px;
+  border-bottom: 2px dotted #31556D;
 `

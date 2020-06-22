@@ -27,7 +27,7 @@ export const TagList = () => {
 
   return (
     <div>
-      <h1>{tag}</h1>
+      <TagTitle>{tag}</TagTitle>
       {tags && tags.map((recipe) => (
         <div key={recipe._id}>
           <StyledLink to={`/recipes/${recipe._id}`}>
@@ -38,6 +38,11 @@ export const TagList = () => {
     </div>
   )
 }
+
+const TagTitle = styled.h1`
+  color: #8DCAC7;
+  text-align: center;
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;

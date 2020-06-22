@@ -4,9 +4,9 @@ import styled from 'styled-components/macro'
 export const IngredientsList = ({ ingredientArray }) => {
   return (
     <IngredientsContainer>
-      <h3>Ingredients</h3>
+      <IngredientsTitle>Ingredients</IngredientsTitle>
       {ingredientArray.ingredients.map((item, index) => (
-        <p key={index}>{item}</p>
+        <IngredientsItem key={index}>{item}</IngredientsItem>
       ))}
     </IngredientsContainer>
   )
@@ -20,4 +20,15 @@ const IngredientsContainer = styled.div`
   margin: -1px 10px 0 10px;
   border-right: 2px solid #FECAC1;
   border-left: 2px solid #FECAC1;
+`
+
+const IngredientsTitle = styled.h3`
+  padding: 8px 0;
+  margin: 10px 0;
+  width: 120px;
+  border-bottom: 2px dotted #31556D;
+`
+
+const IngredientsItem = styled.p`
+  margin-left: 20px;
 `

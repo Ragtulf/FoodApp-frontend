@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <Heading>
       <Redirect to="/">
-        <Logo src="/assets/logo.svg" alt="logo" />
+        <Logo src="/assets/o-logo.svg" alt="logo" />
       </Redirect>
 
       {!loggedIn
@@ -71,8 +71,8 @@ const StyledRedirect = styled(NavLink)`
 
 const Logo = styled.img`
   padding: 20px;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
 `
 
 const UserLog = styled.div`

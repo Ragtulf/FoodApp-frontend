@@ -7,8 +7,8 @@ export const CardFooter = ({ tagsArray }) => {
     <Footer>
       <TagContainer>
         {tagsArray.tags.map((tag, index) => (
-          <StyledLink to={`/tags/${tag}`}>
-            <Tag key={index}>{tag}</Tag>
+          <StyledLink to={`/tags/${tag}`} key={index}>
+            <Tag>{tag}</Tag>
           </StyledLink>
         ))}
       </TagContainer>
@@ -25,11 +25,13 @@ const Footer = styled.div`
   border-right: 2px solid #FECAC1;
   border-left: 2px solid #FECAC1;
 `
+
 const TagContainer = styled.div`
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
 `
+
 const StyledLink = styled(Link)`
   text-decoration: none;
 `

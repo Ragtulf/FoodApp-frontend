@@ -107,6 +107,7 @@ const InputField = styled.input`
   width: 200px;
   padding: 10px;
   background: #F3DDD4;
+  color: #F56C54;
   border-radius: 2px;
   border: none;
   ::placeholder,
@@ -117,5 +118,9 @@ const InputField = styled.input`
   :-ms-input-placeholder {
     color: #F56C54;
     font-family: 'Circular', sans-serif;
+  }
+
+  &:focus {
+    outline: 2px solid #F56C54;
   }
   `

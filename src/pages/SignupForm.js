@@ -150,6 +150,7 @@ const InputField = styled.input`
   width: 200px;
   padding: 10px;
   background: #F3DDD4;
+  color: #F56C54;
   border-radius: 2px;
   border: none;
   ::placeholder,
@@ -158,6 +159,10 @@ const InputField = styled.input`
   }
   :-ms-input-placeholder {
     color: #F56C54;
+  }
+
+  &:focus {
+    outline: 2px solid #F56C54;
   }
   `
 
@@ -183,6 +188,10 @@ const PicInput = styled.input`
 
   &:active::before {
     background-image: none;
+  }
+
+  &:focus {
+    outline: 2px solid #F56C54;
   }
 `
 
