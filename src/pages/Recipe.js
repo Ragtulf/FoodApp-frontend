@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { RecipeHeader } from '../components/Card/RecipeHeader'
 import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
-import { CardFooter } from '../components/Card/CardFooter'
+import { RecipeFooter } from '../components/Card/RecipeFooter'
 import styled from 'styled-components/macro'
 
 export const Recipe = ({ recipeId }) => {
@@ -42,9 +42,8 @@ export const Recipe = ({ recipeId }) => {
           userName={recipe.createdBy ? recipe.createdBy.userName : 'Anonymous'} />}
         {recipe && <IngredientsList ingredientArray={recipe} />}
         {recipe && <Directions directions={recipe.directions} />}
-        {recipe && <CardFooter tagsArray={recipe} />}
+        {recipe && <RecipeFooter tagsArray={recipe} />}
       </RecipeDiv>
-      {/* <Fab /> */}
     </ContentContainer>
   )
 }

@@ -21,6 +21,12 @@ const ShareBtn = styled.button`
   padding: 8px;
   letter-spacing: .5px;
   margin: 40px 5px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: #A7E4E1;
+  }
+
 
   &:active, :focus {
     outline: 2px solid #409D99;

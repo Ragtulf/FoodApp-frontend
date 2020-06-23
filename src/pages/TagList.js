@@ -49,7 +49,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex:
   flex-direction: column;
-
+  transition: 0.2s ease-in-out;
+  
   &:focus {
     outline: 2px solid #F56C54;
   }

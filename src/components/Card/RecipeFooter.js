@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export const CardFooter = ({ tagsArray }) => {
+export const RecipeFooter = ({ tagsArray }) => {
   return (
+    <Footer>
       <TagContainer>
         {tagsArray.tags.map((tag, index) => (
           <StyledLink to={`/tags/${tag}`} key={index}>
@@ -11,15 +12,25 @@ export const CardFooter = ({ tagsArray }) => {
           </StyledLink>
         ))}
       </TagContainer>
+    </Footer>
   )
 }
+
+const Footer = styled.div`
+  padding: 5px;
+  margin: -1px 10px 20px 10px;
+  max-width: 100%;
+  background-color: #fffbfa;
+  border-bottom: 2px solid #FECAC1;
+  border-right: 2px solid #FECAC1;
+  border-left: 2px solid #FECAC1;
+`
 
 const TagContainer = styled.div`
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 5px;
 `
 
 const StyledLink = styled(Link)`

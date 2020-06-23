@@ -77,6 +77,11 @@ const Logo = styled.img`
   padding: 20px;
   width: 65px;
   height: 65px;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (min-width: 600px) {
     height: 80px;
@@ -106,6 +111,12 @@ const LoggedUser = styled.button`
   border-radius: 1px;
   margin-left: 10px;
   border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: #FF9684;
+  }
 
   @media (min-width: 800px) {
     font-size: 14px;
@@ -120,5 +131,10 @@ const ProfileLink = styled.img`
   @media (min-width: 800px) {
     width: 35px;
     height: 35px;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `

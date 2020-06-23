@@ -46,6 +46,40 @@ export const ProfileView = () => {
   )
 }
 
+const RecipeTitle = styled.p`
+  color: #31556D;
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  margin-top: 5px;
+  text-align: left;
+  align-self: flex-start;
+  transition: 0.2s ease-in-out;
+
+  @media (min-width: 600px) {
+    margin: 3px 0;
+  }
+`
+
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px 5px;
+  width: 125px;
+  color: #31556D;
+
+  &:hover ${RecipeTitle} {
+    color: #6CBAB6;
+  }
+
+  @media (min-width: 600px) {
+    width: 200px;
+  }
+`
+
 const UserContainer = styled.div`
   display: flex; 
   flex-direction: column;
@@ -62,34 +96,6 @@ const UserContainer = styled.div`
 
   @media (min-width: 800px) {
     width: 70%;
-  }
-`
-
-const StyledLink = styled(Link)`
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  margin: 10px 5px;
-  width: 125px;
-
-  @media (min-width: 600px) {
-    width: 200px;
-  }
-`
-
-const RecipeTitle = styled.p`
-  color: #31556D;
-  font-size: 12px;
-  font-weight: 700;
-  overflow-wrap: break-word;
-  margin-top: 5px;
-  text-align: left;
-  align-self: flex-start;
-
-  @media (min-width: 600px) {
-    margin: 3px 0;
   }
 `
 

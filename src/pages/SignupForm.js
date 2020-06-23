@@ -177,6 +177,11 @@ const PicInput = styled.input`
   color: transparent;
   width: 106px;
   height: 106px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   &::-webkit-file-upload-button {
     visibility: hidden;

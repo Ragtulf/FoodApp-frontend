@@ -111,6 +111,12 @@ const InputField = styled.input`
   border-radius: 2px;
   font-family: 'Circular', sans-serif;
   border: none;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: #FDE9E0;
+  }
+
   ::placeholder,
   ::-webkit-input-placeholder {
     font-family: 'Circular', sans-serif;

@@ -3,8 +3,7 @@ import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { ui } from '../reducers/ui'
-import { CardHeader } from '../components/Card/CardHeader'
-import { CardFooter } from '../components/Card/CardFooter'
+import { CardFeed } from '../components/Card/CardFeed'
 import swal from 'sweetalert'
 
 export const Feed = () => {
@@ -42,23 +41,21 @@ export const Feed = () => {
           {loggedIn &&
             <CardContainer>
               <StyledLink to={`/recipes/${item._id}`}>
-                <CardHeader
-                  profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
+                <CardFeed profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
                   title={item.title}
                   image={item.imageUrl}
                   shortDes={item.shortDescription}
-                  userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
+                  userName={item.createdBy ? item.createdBy.userName : 'Anonymous'}
+                  tagsArray={item} />
               </StyledLink>
-              <CardFooter tagsArray={item} />
             </CardContainer>}
-            {!loggedIn && <CardContainer onClick={handleNotLoggedUser}>
-            <CardHeader
-              profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
+          {!loggedIn && <CardContainer onClick={handleNotLoggedUser}>
+            <CardFeed profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
               title={item.title}
               image={item.imageUrl}
               shortDes={item.shortDescription}
-              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'} />
-            <CardFooter tagsArray={item} />
+              userName={item.createdBy ? item.createdBy.userName : 'Anonymous'}
+              tagsArray={item} />
           </CardContainer>}
         </div>))}
     </FeedContainer>
@@ -89,9 +86,10 @@ const CardContainer = styled.div`
 
   @media (min-width: 800px) {
     width: 400px;
-    height: 450px;
-    min-height: 450px;
+    height: 455px;
+    min-height: 455px;
     max-height: 100%;
+    margin-bottom: 10px;
   }
 `
 

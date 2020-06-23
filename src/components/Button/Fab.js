@@ -27,6 +27,11 @@ const FabButton = styled.div`
   0 9px 14px rgba(0, 0, 0, 0.144);
   display: flex;
   justify-content: center;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: #FF2EAF;
+  }
 `
 
 const Plus = styled.img`
