@@ -71,7 +71,7 @@ const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  margin: 30px 5px;
+  margin: 10px 5px;
   width: 125px;
 
   @media (min-width: 600px) {
