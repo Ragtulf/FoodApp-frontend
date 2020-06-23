@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ProfileHeader } from '../components/Header/ProfileHeader'
-// import { UserHeader } from '../components/Header/UserHeader'
 import { ShareButton } from '../components/Button/ShareButton'
 import { Fab } from '../components/Button/Fab'
 
@@ -23,7 +22,6 @@ export const ProfileView = () => {
     fetch(`https://grymt-food-app.herokuapp.com/users/${userID}/recipes`)
       .then((res) => res.json())
       .then((json) => {
-        console.log('User profile:', json)
         setUserRecipe(json)
       })
   }, [userID])

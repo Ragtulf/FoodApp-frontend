@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { ui } from '../reducers/ui'
 import { CardHeader } from '../components/Card/CardHeader'
 import { CardFooter } from '../components/Card/CardFooter'
-import { Fab } from '../components/Button/Fab'
+import swal from 'sweetalert'
 
 export const Feed = () => {
   const [recipes, setRecipes] = useState(null)
@@ -17,11 +17,23 @@ export const Feed = () => {
     fetch('https://grymt-food-app.herokuapp.com/recipes')
       .then((res) => res.json())
       .then((json) => {
-        console.log(json)
         setRecipes(json)
         dispatch(ui.actions.setLoading(false))
       })
   }, [])
+
+  const handleNotLoggedUser = event => {
+    event.preventDefault()
+
+    swal({
+      title: 'Are you hungry?',
+      text: 'Log in to see recipes',
+      icon: 'info',
+      button: {
+        text: 'Ok'
+      }
+    })
+  }
 
   return (
     <FeedContainer>
@@ -39,7 +51,7 @@ export const Feed = () => {
               </StyledLink>
               <CardFooter tagsArray={item} />
             </CardContainer>}
-            {!loggedIn && <CardContainer>
+            {!loggedIn && <CardContainer onClick={handleNotLoggedUser}>
             <CardHeader
               profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
               title={item.title}
@@ -49,7 +61,6 @@ export const Feed = () => {
             <CardFooter tagsArray={item} />
           </CardContainer>}
         </div>))}
-      {/* {loggedIn && <Fab />} */}
     </FeedContainer>
   )
 }

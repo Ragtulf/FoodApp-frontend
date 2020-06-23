@@ -19,3 +19,29 @@ code {
 #root {
   width: 100%;
 }
+
+.swal-modal {
+  background: #FFFBFA;
+}
+
+.swal-icon--info:after, 
+.swal-icon--info:before {
+  background-color: #6CBAB6;
+}
+
+.swal-icon--info {
+  border-color: #6CBAB6;
+}
+
+.swal-title {
+  color: #0765D3;
+}
+
+.swal-text {
+  font-family: 'Circular', sans-serif;
+  color: #6CBAB6;
+}
+
+.swal-button.swal-button--confirm {
+  background: #FF69C6;
+}

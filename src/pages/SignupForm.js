@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ShareButton } from '../components/Button/ShareButton'
+import swal from 'sweetalert'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
@@ -24,9 +25,14 @@ export const SignupForm = () => {
     })
       .then((res) => {
         if (!res.ok) {
-          console.log('Error on fetch')
+          swal({
+            text: 'Something went wrong',
+            icon: 'error',
+            button: {
+              text: 'Try again'
+            }
+          })
         } else {
-          console.log(res.json)
           return res.json()
         }
       })
@@ -39,7 +45,6 @@ export const SignupForm = () => {
         })
           .then((res) => res.json())
           .then((json) => {
-            console.log('JSON:', json)
             history.push('/login')
           })
       })
@@ -65,6 +70,7 @@ export const SignupForm = () => {
         User name:
         <InputField
           required
+          minLength="2"
           type="text"
           onChange={(event) => setUserName(event.target.value)}
           value={userName}

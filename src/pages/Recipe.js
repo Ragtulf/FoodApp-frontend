@@ -5,7 +5,6 @@ import { RecipeHeader } from '../components/Card/RecipeHeader'
 import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
 import { CardFooter } from '../components/Card/CardFooter'
-import { Fab } from '../components/Button/Fab'
 import styled from 'styled-components/macro'
 
 export const Recipe = ({ recipeId }) => {
