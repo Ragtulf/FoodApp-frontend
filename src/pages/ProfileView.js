@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { UserHeader } from '../components/Header/UserHeader'
+import { ProfileHeader } from '../components/Header/ProfileHeader'
+// import { UserHeader } from '../components/Header/UserHeader'
 import { ShareButton } from '../components/Button/ShareButton'
 import { Fab } from '../components/Button/Fab'
 
@@ -29,7 +30,7 @@ export const ProfileView = () => {
 
   return (
     <UserContainer>
-      <UserHeader />
+      <ProfileHeader />
       <RecipeContainer>
         {userRecipe && userRecipe.map((item) => (
           <StyledLink to={`/recipes/${item._id}`} key={item._id}>
@@ -73,7 +74,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   margin: 30px 5px;
-  width: 45%;
+  width: 125px;
 
   @media (min-width: 600px) {
     width: 200px;
@@ -86,7 +87,7 @@ const RecipeTitle = styled.p`
   font-weight: 700;
   overflow-wrap: break-word;
   margin-top: 5px;
-  margin-left: 20px;
+  text-align: left;
   align-self: flex-start;
 
   @media (min-width: 600px) {
@@ -110,6 +111,7 @@ const RecipeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   padding-bottom: 30px;
 
   @media (min-width: 600px) {

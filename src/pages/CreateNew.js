@@ -84,7 +84,7 @@ export const CreateNew = () => {
 
         <RecipeLabel>
           Short Description:
-          <InputField
+          <DescriptionInput
             required
             maxLength="100"
             type="text"
@@ -115,7 +115,7 @@ export const CreateNew = () => {
 
         <RecipeLabel>
           Directions:
-          <InputField
+          <DirectionsInput
             required
             type="text"
             onChange={(event) => setDirections(event.target.value)}
@@ -136,9 +136,14 @@ export const CreateNew = () => {
 }
 
 const BackgroundContainer = styled.div`
-  background: #FFFBFA;
   border-radius: 20px;
   margin: 0px 10px 40px 10px;
+
+  @media (min-width: 600px) {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 `
 
 const RecipeForm = styled.form`
@@ -157,6 +162,36 @@ const Plus = styled.span`
   margin-right: 10px;
 `
 
+const DescriptionInput = styled.textarea`
+  resize: none;
+  width: 200px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  background: #F3DDD4;
+  color: #F56C54;
+  border-radius: 2px;
+  font-family: 'Circular', sans-serif;
+
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #F56C54;
+    font-family: 'Circular', sans-serif;
+  }
+  :-ms-input-placeholder {
+    color: #F56C54;
+    font-family: 'Circular', sans-serif;
+  }
+
+  &:focus {
+    outline: 2px solid #F56C54;
+  }
+
+  @media (min-width: 800px) {
+    width: 250px;
+  }
+`
+
 const UploadImg = styled.div`
   width: 200px;
   padding: 10px;
@@ -164,6 +199,10 @@ const UploadImg = styled.div`
   border-radius: 2px;
   text-align: center;
   margin-top: 20px;
+
+  @media (min-width: 800px) {
+    width: 250px;
+  }
 `
 
 const FileLabel = styled.label`
@@ -202,12 +241,47 @@ const InputField = styled.input`
   &:focus {
     outline: 2px solid #F56C54;
   }
+
+  @media (min-width: 800px) {
+    width: 250px;
+  }
   `
+
+  const DirectionsInput = styled.textarea`
+    resize: none;
+    width: 200px;
+    height: 100px;
+    border: none;
+    padding: 10px;
+    background: #F3DDD4;
+    color: #F56C54;
+    border-radius: 2px;
+    font-family: 'Circular', sans-serif;
+
+    ::placeholder,
+    ::-webkit-input-placeholder {
+      color: #F56C54;
+      font-family: 'Circular', sans-serif;
+    }
+    :-ms-input-placeholder {
+      color: #F56C54;
+      font-family: 'Circular', sans-serif;
+    }
+  
+    &:focus {
+      outline: 2px solid #F56C54;
+    }
+
+    @media (min-width: 800px) {
+      width: 250px;
+    }
+  `
+
 const DynamicTitle = styled.p`
-    color: #31556D;
-    font-size: 16px;
-    margin: 0;
-  `
+  color: #31556D;
+  font-size: 16px;
+  margin: 0;
+`
 
 const FileName = styled.p`
   color: #F56C54;

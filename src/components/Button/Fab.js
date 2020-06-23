@@ -6,7 +6,7 @@ export const Fab = () => {
   return (
     <Link to="/post">
       <FabButton>
-        <Plus src="assets/plus.svg" alt="Add button" />
+        <Plus src="/assets/plus.svg" alt="Add button" />
       </FabButton>
     </Link>
   )
@@ -22,7 +22,9 @@ const FabButton = styled.div`
   height: 50px;
   width: 50px;
   padding: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.11),
+  0 5px 8px rgba(0, 0, 0, 0.123),
+  0 9px 14px rgba(0, 0, 0, 0.144);
   display: flex;
   justify-content: center;
 `

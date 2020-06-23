@@ -108,6 +108,10 @@ const InputField = styled.input`
   &:focus {
     outline: 2px solid #F56C54;
   }
+
+  @media (min-width: 800px) {
+    width: 213px;
+  }
 `
 
 const Remove = styled.img`

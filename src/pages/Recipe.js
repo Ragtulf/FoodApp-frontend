@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { CardHeader } from '../components/Card/CardHeader'
+import { RecipeHeader } from '../components/Card/RecipeHeader'
 import { IngredientsList } from '../components/Card/Ingredients'
 import { Directions } from '../components/Card/Directions'
 import { CardFooter } from '../components/Card/CardFooter'
+import { Fab } from '../components/Button/Fab'
 import styled from 'styled-components/macro'
 
 export const Recipe = ({ recipeId }) => {
@@ -31,7 +32,7 @@ export const Recipe = ({ recipeId }) => {
   return (
     <ContentContainer>
       <RecipeDiv>
-        {recipe && <CardHeader
+        {recipe && <RecipeHeader
           profilePic={recipe.createdBy
             && recipe.createdBy.profilePic
             ? recipe.createdBy.profilePic
@@ -44,6 +45,7 @@ export const Recipe = ({ recipeId }) => {
         {recipe && <Directions directions={recipe.directions} />}
         {recipe && <CardFooter tagsArray={recipe} />}
       </RecipeDiv>
+      {/* <Fab /> */}
     </ContentContainer>
   )
 }

@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
-export const UserHeader = () => {
+export const ProfileHeader = () => {
   const [user, setUser] = useState(null)
   const id = useSelector((store) => store.user.id)
-  // const loggedIn = useSelector((store) => store.user.loggedIn)
-  // const profilePic = useSelector((store) => store.user.image)
 
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
@@ -48,12 +46,11 @@ const CardHeading = styled.div`
 
   @media (min-width: 600px) {
     width: 80%;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   @media (min-width: 800px) {
     width: 50%;
+    padding: 20px 0 0 20px;
   }
 `
 

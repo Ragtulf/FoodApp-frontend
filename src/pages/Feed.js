@@ -49,7 +49,7 @@ export const Feed = () => {
             <CardFooter tagsArray={item} />
           </CardContainer>}
         </div>))}
-      {loggedIn && <Fab />}
+      {/* {loggedIn && <Fab />} */}
     </FeedContainer>
   )
 }
