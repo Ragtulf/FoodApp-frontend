@@ -227,6 +227,7 @@ const InputField = styled.input`
   background: #F3DDD4;
   color: #F56C54;
   border-radius: 2px;
+  font-family: 'Circular', sans-serif;
   border: none;
   ::placeholder,
   ::-webkit-input-placeholder {

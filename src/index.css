@@ -45,3 +45,7 @@ code {
 .swal-button.swal-button--confirm {
   background: #FF69C6;
 }
+
+.swal-button.swal-button--confirm:hover {
+  background: rgba(255, 105, 198, 0.527);
+}

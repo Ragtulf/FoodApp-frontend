@@ -21,4 +21,8 @@ const ShareBtn = styled.button`
   padding: 8px;
   letter-spacing: .5px;
   margin: 40px 5px;
+
+  &:active, :focus {
+    outline: 2px solid #409D99;
+  }
 `

@@ -51,6 +51,7 @@ const RecipeTitle = styled.p`
   font-size: 18px;
   color: #295284;
   margin: 17px 0 0 0;
+  text-transform: capitalize;
 `
 
 const User = styled.p`
