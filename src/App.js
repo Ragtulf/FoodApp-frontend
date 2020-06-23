@@ -30,44 +30,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <FoodCommunityContent />
-      {/* <BrowserRouter>
-        <Header />
-        <Switch>
-
-          <Route path="/" exact>
-            <LoadingIndicator />
-            <Feed />
-            {loggedIn && <Fab />}
-          </Route>
-
-          <Route path="/recipes/:id">
-            <LoadingIndicator />
-            <Recipe />
-          </Route>
-
-          <Route path="/post">
-            <CreateNew />
-          </Route>
-
-          <Route path="/signup" exact>
-            <SignupForm />
-          </Route>
-
-          <Route path="/login" exact>
-            <LoginForm />
-          </Route>
-
-          <Route path="/profile" exact>
-            <LoadingIndicator />
-            <ProfileView />
-          </Route>
-
-          <Route path="/tags/:tag">
-            <TagList />
-          </Route>
-
-        </Switch>
-      </BrowserRouter> */}
     </Provider>
   )
 }
