@@ -1,19 +1,28 @@
-# Technigo React Starter App
+# o! Food Community - Final Project - Frontend 🌟🍔🏅
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+An online platform to look at, share and collect recipes. It is a web application that can be viewed both on desktop and in mobile.
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+## Tech
 
-## Usage
+- React.js
+- JSX
+- Redux
+- Reusable components
+- Styled-Components
+- RESTful API
+- React Router
+- Dynamic inputs
+- Sweetalert
+- User friendly design
+- Figma
+- Mob programming
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
 
-Alternatively, if you don't want a new git repo on your account;
+## How we did it
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+We spent a lot of time planning. We visualized everything we could in Figma before we started coding. We decided early on to break the project down to features that could focus on one at a time and be sure our product was interesting to a user early on. Then we built on top of that from our list of features we had planned. We ended up realizing a lot of our strech-goals. We really enjoyed this project and we'll continue with it and build more features.
+
+## View it live
+
+The final product can be viewed here👀🌶: 
+https://o-food-community.netlify.app/
