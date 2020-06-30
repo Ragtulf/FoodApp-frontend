@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ShareButton } from '../components/Button/ShareButton'
 import swal from 'sweetalert'
+import { ShareButton } from '../components/Button/ShareButton'
 
 const signupURL = 'https://grymt-food-app.herokuapp.com/signup'
 
@@ -15,6 +15,9 @@ export const SignupForm = () => {
   const history = useHistory()
   const fileInput = useRef()
 
+  // Trigger POST req when signing up new user
+  // Profile pic optional, will assign avatar instead
+  // Validation from SweetAlert and mongoose
   const handleSignup = (event) => {
     event.preventDefault()
 
@@ -44,7 +47,7 @@ export const SignupForm = () => {
           body: formData
         })
           .then((res) => res.json())
-          .then((json) => {
+          .then(() => {
             history.push('/login')
           })
       })
@@ -56,7 +59,7 @@ export const SignupForm = () => {
       <HeaderDiv>
         <ButtonColumn>
           <PicInput
-            type='file'
+            type="file"
             ref={fileInput}
             onChange={(event) => {
               setFileName(event.target.files[0].name)

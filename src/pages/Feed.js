@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import swal from 'sweetalert'
 import { ui } from '../reducers/ui'
 import { CardFeed } from '../components/Card/CardFeed'
-import swal from 'sweetalert'
 
 export const Feed = () => {
   const [recipes, setRecipes] = useState(null)
   const loggedIn = useSelector((store) => store.user.loggedIn)
   const dispatch = useDispatch()
 
+  // Fetching all of the recipes
+  // Loading state until response
   useEffect(() => {
     dispatch(ui.actions.setLoading(true))
     fetch('https://grymt-food-app.herokuapp.com/recipes')
@@ -21,7 +23,8 @@ export const Feed = () => {
       })
   }, [])
 
-  const handleNotLoggedUser = event => {
+  // SweetAlert if not logged in
+  const handleNotLoggedUser = (event) => {
     event.preventDefault()
 
     swal({
@@ -41,7 +44,8 @@ export const Feed = () => {
           {loggedIn &&
             <CardContainer>
               <StyledLink to={`/recipes/${item._id}`}>
-                <CardFeed profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
+                <CardFeed
+                  profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
                   title={item.title}
                   image={item.imageUrl}
                   shortDes={item.shortDescription}
@@ -50,7 +54,8 @@ export const Feed = () => {
               </StyledLink>
             </CardContainer>}
           {!loggedIn && <CardContainer onClick={handleNotLoggedUser}>
-            <CardFeed profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
+            <CardFeed
+              profilePic={item.createdBy && item.createdBy.profilePic ? item.createdBy.profilePic : `/Avatars2/avatars${item.createdBy.avatar}.svg`}
               title={item.title}
               image={item.imageUrl}
               shortDes={item.shortDescription}

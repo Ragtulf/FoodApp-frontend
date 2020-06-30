@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { Recipe } from './Recipe'
+import { ui } from '../reducers/ui'
 
 export const TagList = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
   const [tags, setTags] = useState(null)
   const { tag } = useParams()
   const accessToken = useSelector((store) => store.user.accessToken)
 
+  // If not authenticated, go back
   useEffect(() => {
     if (!accessToken) {
       history.push('/')
     }
   })
 
+  // Fetching recipes by tags search
+  // Loading state until repsonse
   useEffect(() => {
+    dispatch(ui.actions.setLoading(true))
     fetch(`https://grymt-food-app.herokuapp.com/recipes/tags/${tag}`)
       .then((res) => res.json())
       .then((json) => {
         setTags(json)
-        console.log('There are tags:', json)
+        dispatch(ui.actions.setLoading(false))
       })
   }, [tag])
 

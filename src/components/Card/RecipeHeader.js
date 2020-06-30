@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
+// Top part of the recipe card in recipe view
 export const RecipeHeader = ({ title, image, shortDes, userName, profilePic }) => {
   return (
     <TopCardContainer>

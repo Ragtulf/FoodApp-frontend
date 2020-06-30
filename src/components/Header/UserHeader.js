@@ -5,9 +5,8 @@ import styled from 'styled-components/macro'
 export const UserHeader = () => {
   const [user, setUser] = useState(null)
   const id = useSelector((store) => store.user.id)
-  // const loggedIn = useSelector((store) => store.user.loggedIn)
-  // const profilePic = useSelector((store) => store.user.image)
 
+  // Fetch user info
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
       .then((res) => res.json())

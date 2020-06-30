@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
+// Reusable button
 export const ShareButton = ({ buttonName }) => {
   return (
     <ShareBtn
@@ -26,7 +27,6 @@ const ShareBtn = styled.button`
   &:hover {
     background: #A7E4E1;
   }
-
 
   &:active, :focus {
     outline: 2px solid #409D99;

@@ -15,6 +15,8 @@ import { Fab } from '../components/Button/Fab'
 export const FoodCommunityContent = () => {
   const loggedIn = useSelector((store) => store.user.loggedIn)
 
+  // We use BrowserRouter to route
+  // We use conditional rendering depending on logged in state
   return (
     <BrowserRouter>
       <Header />
@@ -50,6 +52,7 @@ export const FoodCommunityContent = () => {
         </Route>
 
         <Route path="/tags/:tag">
+          <LoadingIndicator />
           <TagList />
           {loggedIn && <Fab />}
         </Route>

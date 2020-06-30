@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
+// We use props to set the state of the inputs in the parent component
 export const DynamicInput = ({ placeholderText, fields, setFields }) => {
 
+  // Puts a value to each input field
   const handleChange = (index, event) => {
     event.preventDefault()
     const values = [...fields]
@@ -11,6 +13,7 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
     setFields(values)
   }
 
+  // Adds new input field
   const handleAdd = () => {
     console.log('Fields:', fields)
     const values = [...fields]
@@ -19,6 +22,7 @@ export const DynamicInput = ({ placeholderText, fields, setFields }) => {
     setFields(values)
   }
 
+  // Removes input field
   const handleRemove = (index) => {
     const values = [...fields]
     values.splice(index, 1)

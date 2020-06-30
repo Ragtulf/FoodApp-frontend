@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
+// Floating Action Button
+// Pushes to create new recipe
 export const Fab = () => {
   return (
     <Link to="/post">

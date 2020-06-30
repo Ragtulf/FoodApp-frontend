@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
+// Card for each recipe in feed
 export const CardFeed = ({ title, image, shortDes, userName, profilePic, tagsArray }) => {
   return (
     <TopCardContainer>
@@ -14,13 +15,13 @@ export const CardFeed = ({ title, image, shortDes, userName, profilePic, tagsArr
       </CardHeading>
       <FoodImage src={image} alt={title} />
       <Description>{shortDes}</Description>
-        <TagContainer>
-          {tagsArray.tags.map((tag, index) => (
-            <StyledLink to={`/tags/${tag}`} key={index}>
-              <Tag>{tag}</Tag>
-            </StyledLink>
-          ))}
-        </TagContainer>
+      <TagContainer>
+        {tagsArray.tags.map((tag, index) => (
+          <StyledLink to={`/tags/${tag}`} key={index}>
+            <Tag>{tag}</Tag>
+          </StyledLink>
+        ))}
+      </TagContainer>
     </TopCardContainer>
   )
 }

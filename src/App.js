@@ -6,6 +6,7 @@ import { recipe } from './reducers/recipe'
 import { user } from './reducers/user'
 import { FoodCommunityContent } from './pages/FoodCommunityContent'
 
+// Creating reducer store
 const reducer = combineReducers({
   recipe: recipe.reducer,
   user: user.reducer,
@@ -14,6 +15,8 @@ const reducer = combineReducers({
 
 const store = configureStore({ reducer })
 
+// We wrapped all of the content in a provider
+// We have all of the content mounted in one component
 export const App = () => {
 
   return (

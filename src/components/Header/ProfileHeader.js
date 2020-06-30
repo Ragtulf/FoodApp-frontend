@@ -6,6 +6,7 @@ export const ProfileHeader = () => {
   const [user, setUser] = useState(null)
   const id = useSelector((store) => store.user.id)
 
+  // Fetching user info
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/login/user/${id}`)
       .then((res) => res.json())

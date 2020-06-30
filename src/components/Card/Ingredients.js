@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
+// Middle part of the recipe card in recipe view
 export const IngredientsList = ({ ingredientArray }) => {
   return (
     <IngredientsContainer>

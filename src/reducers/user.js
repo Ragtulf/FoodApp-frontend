@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// Reducer for authenticating user and login & logout
 const initialState = {
   loggedIn: false,
   accessToken: '',
-  id: '',
-  image: ''
+  id: ''
 }
 
 export const user = createSlice({
@@ -22,9 +22,6 @@ export const user = createSlice({
     },
     userId: (state, action) => {
       state.id = action.payload
-    },
-    userImage: (state, action) => {
-      state.image = action.payload
     }
   }
 })

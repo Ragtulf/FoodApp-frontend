@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
+// Bottom part of the recipe card in recipe view and links to tag search
 export const RecipeFooter = ({ tagsArray }) => {
   return (
     <Footer>

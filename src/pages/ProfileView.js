@@ -12,12 +12,14 @@ export const ProfileView = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const userID = useSelector((store) => store.user.id)
 
+  // Go back if not authenticated
   useEffect(() => {
     if (!accessToken) {
       history.push('/')
     }
   })
 
+  // Fetch all recipes from specific user
   useEffect(() => {
     fetch(`https://grymt-food-app.herokuapp.com/users/${userID}/recipes`)
       .then((res) => res.json())

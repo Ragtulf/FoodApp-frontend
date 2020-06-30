@@ -14,6 +14,10 @@ export const LoginForm = () => {
   const history = useHistory()
   const dispatch = useDispatch()
 
+  // Trigger POST req when logging in
+  // Save accesstoken and userId in Redux
+  // Validation with SweetAlert
+  // Pushed to login page if validated
   const handleSignup = (event) => {
     event.preventDefault()
 

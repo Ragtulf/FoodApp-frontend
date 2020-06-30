@@ -18,12 +18,15 @@ export const CreateNew = () => {
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.accessToken)
 
+  // Go back if not authenticated
   useEffect(() => {
     if (!accessToken) {
       history.push('/')
     }
   })
 
+  // Submitted form trigger fetch w POST req
+  // Validation w accesstoken and sweetalert
   const handleSubmit = (event) => {
     event.preventDefault()
 

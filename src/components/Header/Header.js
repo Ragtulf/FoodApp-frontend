@@ -8,10 +8,13 @@ export const Header = () => {
   const dispatch = useDispatch()
   const loggedIn = useSelector((store) => store.user.loggedIn)
 
+  // Logs out user
   const handleLogout = () => {
     dispatch(user.actions.logout())
   }
 
+  // Login and signup buttons conditionally rendered depending on if logged in or not.
+  // Otherwise profile button and logout button.
   return (
     <Heading>
       <Redirect to="/">
@@ -20,33 +23,29 @@ export const Header = () => {
 
       {!loggedIn
         && <UserLog>
-          <Redirect to="/signup"
-            activeStyle={{
-              display: 'none'
-            }}>
+          <Redirect
+            to="/signup"
+            activeStyle={{ display: 'none' }}>
             <LoggedUser>Sign up</LoggedUser>
           </Redirect>
 
-          <Redirect to="/login"
-            activeStyle={{
-              display: 'none'
-            }}>
+          <Redirect
+            to="/login"
+            activeStyle={{ display: 'none' }}>
             <LoggedUser>Login</LoggedUser>
           </Redirect>
-        </UserLog>
-      }
+        </UserLog>}
 
       {loggedIn
         && <UserLog>
           <LoggedUser
             onClick={handleLogout}>
             Log Out
-        </LoggedUser>
+          </LoggedUser>
 
-          <StyledRedirect to="/profile"
-            activeStyle={{
-              display: 'none'
-            }}>
+          <StyledRedirect
+            to="/profile"
+            activeStyle={{ display: 'none' }}>
             <ProfileLink src="/assets/profile-icon.svg" alt="Profile" />
           </StyledRedirect>
         </UserLog>}

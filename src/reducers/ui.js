@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// Reducer for loading state
 export const ui = createSlice({
   name: 'ui',
   initialState: {
